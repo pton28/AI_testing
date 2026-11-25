@@ -1,0 +1,92 @@
+{
+  "datasets": [
+    {
+      "name": "rees46_electronics",
+      "adapter": "rees46_events",
+      "source": "https://data.rees46.com/datasets/electronics-events/electronics-events.csv.gz",
+      "experiments": [
+        "als",
+        "session_based",
+        "als_session_fusion"
+      ]
+    },
+    {
+      "name": "merrec",
+      "source_page": "https://huggingface.co/datasets/mercari-us/merrec",
+      "experiments": [
+        "als",
+        "llm_attribute_extraction",
+        "session_based",
+        "three_branch_fusion"
+      ],
+      "files": [
+        {
+          "role": "events_and_product_attributes_sample_shard",
+          "format": "parquet",
+          "source": "https://huggingface.co/datasets/mercari-us/merrec/resolve/main/20230501/000000000030.parquet"
+        }
+      ],
+      "adapter": "merrec_events",
+      "source": "https://huggingface.co/datasets/mercari-us/merrec/resolve/main/20230501/000000000030.parquet",
+      "scope": "sample_shard: 20230501/000000000030.parquet"
+    }
+  ],
+  "planned_datasets": [
+    {
+      "name": "amazon_m2",
+      "status": "LOCAL_READY",
+      "scope": "locally provided CSV files",
+      "source_page": "https://kddcup23.github.io/",
+      "experiments": [
+        "llm_attribute_extraction",
+        "session_based",
+        "content_session_fusion"
+      ],
+      "files": [
+        {
+          "role": "sessions_with_next_item_labels",
+          "adapter": "amazon_m2_sessions",
+          "format": "csv",
+          "source": "amazon_m2/sessions_train.csv"
+        },
+        {
+          "role": "product_catalog",
+          "adapter": "amazon_m2_products",
+          "format": "csv",
+          "source": "amazon_m2/products_train.csv"
+        }
+      ]
+    },
+    {
+      "name": "coveo_sigir_ecom_2021",
+      "status": "LOCAL_READY",
+      "scope": "locally provided authorized CSV files",
+      "source_page": "https://www.coveo.com/en/ailabs/sigir-ecom-data-challenge",
+      "experiments": [
+        "session_based",
+        "vector_retrieval",
+        "vector_session_fusion"
+      ],
+      "files": [
+        {
+          "role": "browsing_events",
+          "adapter": "coveo_browsing_events",
+          "format": "csv",
+          "source": "sigir/browsing_train.csv"
+        },
+        {
+          "role": "search_events",
+          "adapter": "coveo_search_events",
+          "format": "csv",
+          "source": "sigir/search_train.csv"
+        },
+        {
+          "role": "product_content_vectors",
+          "adapter": "coveo_sku_content",
+          "format": "csv",
+          "source": "sigir/sku_to_content.csv"
+        }
+      ]
+    }
+  ]
+}
