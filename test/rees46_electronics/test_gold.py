@@ -15,7 +15,7 @@ from loader.common.minio_store import MinioLoader
 from loader.common.local_store import LocalLoader
 from pipeline import build_gold, run
 from transformer.common.silver import SILVER_SCHEMA
-from transformer.common.gold import GOLD_SCHEMA, validate_gold, write_gold
+from transformer.common.gold import GOLD_SCHEMA, GOLD_SCHEMA_V3, validate_gold, write_gold
 from transformer.datasets.rees46_electronics.gold import Rees46GoldEvents
 
 
@@ -110,12 +110,15 @@ class GoldTests(unittest.TestCase):
             build.assert_called_once()
             self.assertEqual(build.call_args.args[1]["name"], DATASET)
             self.assertEqual(build.call_args.args[2], VERSION)
+            self.assertEqual(build.call_args.kwargs["schema"], GOLD_SCHEMA_V3)
             raw_extract.assert_not_called()
 
-    def test_orchestration_reads_silver_and_overwrites_same_gold_key(self):
+    def test_orchestration_writes_v2_without_changing_v1(self):
         self.write_source([silver_row(), silver_row(event_type="purchase")])
         silver_key = f"silver/{DATASET}/rees46_events/{VERSION}/events.parquet"
-        objects = {silver_key: self.source.read_bytes()}
+        v1_key = f"gold/{DATASET}/{VERSION}/events.parquet"
+        v1_content = b"existing-gold-v1"
+        objects = {silver_key: self.source.read_bytes(), v1_key: v1_content}
         reads = []
 
         class MemoryMinio:
@@ -131,7 +134,9 @@ class GoldTests(unittest.TestCase):
         first = build_gold(loader, dataset, VERSION)
         second = build_gold(loader, dataset, VERSION)
         self.assertEqual(first, second)
-        self.assertEqual(len(objects), 2)
+        self.assertEqual(first[0], f"gold/v2/{DATASET}/{VERSION}/events.parquet")
+        self.assertEqual(objects[v1_key], v1_content)
+        self.assertEqual(len(objects), 3)
         self.assertEqual(reads, [silver_key, first[0], silver_key, first[0]])
 
     def test_local_run_downloads_without_credentials_and_reruns(self):
@@ -156,7 +161,8 @@ class GoldTests(unittest.TestCase):
                     run()
                 gold = list((root / "data/gold").rglob("events.parquet"))
                 self.assertEqual(len(gold), 1)
-                results.append((gold[0], validate_gold(gold[0], DATASET)))
+                self.assertIn("gold/v3/", gold[0].as_posix())
+                results.append((gold[0], validate_gold(gold[0], DATASET, schema=GOLD_SCHEMA_V3)))
             self.assertEqual(download.call_count, 2)
             with patch("sys.argv", ["run_pipeline.py", "--dataset", DATASET, "--storage", "local",
                                     "--gold-only", "--source-version", gold[0].parent.name]):

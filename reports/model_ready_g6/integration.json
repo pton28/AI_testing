@@ -1,0 +1,372 @@
+{
+  "status": "PASS",
+  "official_bucket": "nutee-recsys",
+  "gold_v3_source_bucket": "nutee-sequential-integrity-g4-test-20261126",
+  "product_dimension_source_bucket": "nutee-product-dimension-g5-test-20261126-1642",
+  "test_bucket": "nutee-model-ready-g6-test-20261126-1703b",
+  "baseline_inventories_before": {
+    "nutee-event-preservation-g3-test-20261126": {
+      "object_count": 2,
+      "sha256": "2bce9129a9ac82e860a4f064076fefe1fa9c1818fede0d474ec29c6bbbe17bcf"
+    },
+    "nutee-product-dimension-g5-test-20261126-1642": {
+      "object_count": 2,
+      "sha256": "b41a4f953637aad8c1148033fbec7967b5335b5ee29ab15135951eab3223390d"
+    },
+    "nutee-recsys": {
+      "object_count": 16,
+      "sha256": "1b766338a0e8ef8b1ea6ee4559423f7a533e3553544e201f16562ed450ce3b42"
+    },
+    "nutee-sequential-integrity-g4-test-20261126": {
+      "object_count": 4,
+      "sha256": "4b1f357ddaba7b3637ab8dec512ca5c7ca79df9743994d6c06f465463597812c"
+    },
+    "nutee-session-v2-test-20261126b": {
+      "object_count": 4,
+      "sha256": "c07751a52c5366038f5a0b76f1f987261c545eb95d0630ed5b19908d535838b4"
+    }
+  },
+  "baseline_inventories_after": {
+    "nutee-event-preservation-g3-test-20261126": {
+      "object_count": 2,
+      "sha256": "2bce9129a9ac82e860a4f064076fefe1fa9c1818fede0d474ec29c6bbbe17bcf"
+    },
+    "nutee-product-dimension-g5-test-20261126-1642": {
+      "object_count": 2,
+      "sha256": "b41a4f953637aad8c1148033fbec7967b5335b5ee29ab15135951eab3223390d"
+    },
+    "nutee-recsys": {
+      "object_count": 16,
+      "sha256": "1b766338a0e8ef8b1ea6ee4559423f7a533e3553544e201f16562ed450ce3b42"
+    },
+    "nutee-sequential-integrity-g4-test-20261126": {
+      "object_count": 4,
+      "sha256": "4b1f357ddaba7b3637ab8dec512ca5c7ca79df9743994d6c06f465463597812c"
+    },
+    "nutee-session-v2-test-20261126b": {
+      "object_count": 4,
+      "sha256": "c07751a52c5366038f5a0b76f1f987261c545eb95d0630ed5b19908d535838b4"
+    }
+  },
+  "baseline_objects_unchanged": true,
+  "bucket_versioning_before": {
+    "nutee-event-preservation-g3-test-20261126": null,
+    "nutee-product-dimension-g5-test-20261126-1642": null,
+    "nutee-recsys": null,
+    "nutee-sequential-integrity-g4-test-20261126": null,
+    "nutee-session-v2-test-20261126b": null
+  },
+  "bucket_versioning_after": {
+    "nutee-event-preservation-g3-test-20261126": null,
+    "nutee-product-dimension-g5-test-20261126-1642": null,
+    "nutee-recsys": null,
+    "nutee-sequential-integrity-g4-test-20261126": null,
+    "nutee-session-v2-test-20261126b": null
+  },
+  "bucket_versioning_unchanged": true,
+  "test_objects_retained": true,
+  "test_bucket_objects": [
+    "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/model_ready/als_interactions.parquet",
+    "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/model_ready/session_sequences.parquet",
+    "gold/v3/rees46_electronics/cbcbedc28c39a6b2add493bbbd9f71c061ad9d84087b85e64c442e4d47f418e7/model_ready/als_interactions.parquet",
+    "gold/v3/rees46_electronics/cbcbedc28c39a6b2add493bbbd9f71c061ad9d84087b85e64c442e4d47f418e7/model_ready/session_sequences.parquet"
+  ],
+  "datasets": {
+    "rees46_electronics": {
+      "gold_v3_key": "gold/v3/rees46_electronics/cbcbedc28c39a6b2add493bbbd9f71c061ad9d84087b85e64c442e4d47f418e7/events.parquet",
+      "product_dimension_key": "gold/v3/rees46_electronics/cbcbedc28c39a6b2add493bbbd9f71c061ad9d84087b85e64c442e4d47f418e7/products.parquet",
+      "als_interactions_key": "gold/v3/rees46_electronics/cbcbedc28c39a6b2add493bbbd9f71c061ad9d84087b85e64c442e4d47f418e7/model_ready/als_interactions.parquet",
+      "session_sequences_key": "gold/v3/rees46_electronics/cbcbedc28c39a6b2add493bbbd9f71c061ad9d84087b85e64c442e4d47f418e7/model_ready/session_sequences.parquet",
+      "gold_event_count": 885129,
+      "gold_event_counts": {
+        "product_view": 793748,
+        "add_to_cart": 54035,
+        "purchase": 37346
+      },
+      "product_dimension_count": 53453,
+      "als": {
+        "pair_count": 556690,
+        "duplicate_pairs": 0,
+        "null_user_ids": 0,
+        "null_product_ids": 0,
+        "view_count": 793748,
+        "cart_count": 54035,
+        "purchase_count": 37346,
+        "interaction_count": 885129,
+        "content_sha256": "ed943c9cb4853c4637c78792dc21608e7fec3459fa89eb57c22a6c83e1c4e8dc"
+      },
+      "sequences": {
+        "sequence_count": 490633,
+        "sequence_event_count": 884964,
+        "duplicate_session_keys": 0,
+        "ambiguous_session_count": 2424,
+        "content_sha256": "445765eb484ca8bca4247ab9154244fb675a7ea37f728458a3ad157941dea4aa",
+        "ambiguous_event_count": 7939,
+        "null_session_events": 165
+      },
+      "product_coverage": {
+        "als_products": 53453,
+        "als_covered": 53453,
+        "sequence_products": 53452,
+        "sequence_covered": 53452
+      },
+      "sequence_content_matches_gold": true,
+      "rerun_content_hashes_match": true,
+      "acceptance_criteria": {
+        "unique_user_product_pairs": {
+          "expected": 556690,
+          "actual": 556690,
+          "status": "PASS"
+        },
+        "total_interaction_count": {
+          "expected": 885129,
+          "actual": 885129,
+          "status": "PASS"
+        },
+        "view_count_matches_gold": {
+          "expected": true,
+          "actual": true,
+          "status": "PASS"
+        },
+        "cart_count_matches_gold": {
+          "expected": true,
+          "actual": true,
+          "status": "PASS"
+        },
+        "purchase_count_matches_gold": {
+          "expected": true,
+          "actual": true,
+          "status": "PASS"
+        },
+        "interaction_count_equals_event_count": {
+          "expected": true,
+          "actual": true,
+          "status": "PASS"
+        },
+        "duplicate_user_product_pairs": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "null_user_ids": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "null_product_ids": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "unique_sequences": {
+          "expected": 490633,
+          "actual": 490633,
+          "status": "PASS"
+        },
+        "total_sequence_length": {
+          "expected": 884964,
+          "actual": 884964,
+          "status": "PASS"
+        },
+        "events_excluded_for_null_session_key": {
+          "expected": 165,
+          "actual": 165,
+          "status": "PASS"
+        },
+        "duplicate_session_keys": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "shared_session_keys": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "session_sequence_content_matches_gold": {
+          "expected": true,
+          "actual": true,
+          "status": "PASS"
+        },
+        "sequence_lengths_consistent": {
+          "expected": true,
+          "actual": true,
+          "status": "PASS"
+        },
+        "ambiguous_sessions": {
+          "expected": 2424,
+          "actual": 2424,
+          "status": "PASS"
+        },
+        "als_product_coverage": {
+          "expected": 53453,
+          "actual": 53453,
+          "status": "PASS"
+        },
+        "sequence_product_coverage": {
+          "expected": 53452,
+          "actual": 53452,
+          "status": "PASS"
+        },
+        "als_deterministic_rerun": {
+          "expected": true,
+          "actual": true,
+          "status": "PASS"
+        },
+        "sequences_deterministic_rerun": {
+          "expected": true,
+          "actual": true,
+          "status": "PASS"
+        }
+      }
+    },
+    "merrec": {
+      "gold_v3_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+      "product_dimension_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/products.parquet",
+      "als_interactions_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/model_ready/als_interactions.parquet",
+      "session_sequences_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/model_ready/session_sequences.parquet",
+      "gold_event_count": 515601,
+      "gold_event_counts": {
+        "product_view": 504756,
+        "purchase": 677,
+        "add_to_cart": 10168
+      },
+      "product_dimension_count": 431734,
+      "als": {
+        "pair_count": 429812,
+        "duplicate_pairs": 0,
+        "null_user_ids": 0,
+        "null_product_ids": 0,
+        "view_count": 504756,
+        "cart_count": 10168,
+        "purchase_count": 677,
+        "interaction_count": 515601,
+        "content_sha256": "2fa8419b68816ee3bd89e22b26aeaac0560e0ce9ad32674e105b355ab1e42a39"
+      },
+      "sequences": {
+        "sequence_count": 112859,
+        "sequence_event_count": 515601,
+        "duplicate_session_keys": 0,
+        "ambiguous_session_count": 161,
+        "content_sha256": "1f7d897cfabf87fee5952cd698826ffd5e2f4c0df9934219663b6cd12a9aa8f2",
+        "ambiguous_event_count": 393,
+        "null_session_events": 0
+      },
+      "product_coverage": {
+        "als_products": 416784,
+        "als_covered": 416784,
+        "sequence_products": 416784,
+        "sequence_covered": 416784
+      },
+      "sequence_content_matches_gold": true,
+      "rerun_content_hashes_match": true,
+      "acceptance_criteria": {
+        "unique_user_product_pairs": {
+          "expected": 429812,
+          "actual": 429812,
+          "status": "PASS"
+        },
+        "total_interaction_count": {
+          "expected": 515601,
+          "actual": 515601,
+          "status": "PASS"
+        },
+        "view_count_matches_gold": {
+          "expected": true,
+          "actual": true,
+          "status": "PASS"
+        },
+        "cart_count_matches_gold": {
+          "expected": true,
+          "actual": true,
+          "status": "PASS"
+        },
+        "purchase_count_matches_gold": {
+          "expected": true,
+          "actual": true,
+          "status": "PASS"
+        },
+        "interaction_count_equals_event_count": {
+          "expected": true,
+          "actual": true,
+          "status": "PASS"
+        },
+        "duplicate_user_product_pairs": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "null_user_ids": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "null_product_ids": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "unique_sequences": {
+          "expected": 112859,
+          "actual": 112859,
+          "status": "PASS"
+        },
+        "total_sequence_length": {
+          "expected": 515601,
+          "actual": 515601,
+          "status": "PASS"
+        },
+        "events_excluded_for_null_session_key": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "duplicate_session_keys": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "shared_session_keys": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "session_sequence_content_matches_gold": {
+          "expected": true,
+          "actual": true,
+          "status": "PASS"
+        },
+        "sequence_lengths_consistent": {
+          "expected": true,
+          "actual": true,
+          "status": "PASS"
+        },
+        "ambiguous_sessions": {
+          "expected": 161,
+          "actual": 161,
+          "status": "PASS"
+        },
+        "als_product_coverage": {
+          "expected": 416784,
+          "actual": 416784,
+          "status": "PASS"
+        },
+        "sequence_product_coverage": {
+          "expected": 416784,
+          "actual": 416784,
+          "status": "PASS"
+        },
+        "als_deterministic_rerun": {
+          "expected": true,
+          "actual": true,
+          "status": "PASS"
+        },
+        "sequences_deterministic_rerun": {
+          "expected": true,
+          "actual": true,
+          "status": "PASS"
+        }
+      }
+    }
+  }
+}

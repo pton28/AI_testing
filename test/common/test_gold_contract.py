@@ -6,7 +6,14 @@ from pathlib import Path
 import pyarrow as pa
 import pyarrow.parquet as pq
 
-from transformer.common.gold import GOLD_SCHEMA, validate_event, validate_gold, write_gold
+from transformer.common.gold import (
+    GOLD_SCHEMA,
+    GOLD_SCHEMA_V1,
+    build_session_key,
+    validate_event,
+    validate_gold,
+    write_gold,
+)
 
 VERSION = "a" * 64
 
@@ -41,6 +48,16 @@ class GoldContractTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 validate_event({**event, **changes})
 
+    def test_event_validation_checks_session_key_against_source_tuple(self):
+        event = dict.fromkeys(GOLD_SCHEMA.names)
+        event.update(event_id="id", source_dataset="source", event_type="search",
+                     event_origin="observed", user_id="u1", session_id="s1")
+        event["session_key"] = build_session_key("source", "u1", "s1")
+        validate_event(event)
+        event["session_key"] = "nutee-session-v1:incorrect"
+        with self.assertRaisesRegex(ValueError, "session_key"):
+            validate_event(event)
+
     def test_common_writer_preserves_click_view_and_nullable_search(self):
         class IdentityMapping:
             required_columns = set(GOLD_SCHEMA.names)
@@ -61,3 +78,23 @@ class GoldContractTests(unittest.TestCase):
         self.assertEqual(stats["null_counts"]["event_time"], 4)
         self.assertEqual(stats["null_counts"]["user_id"], 4)
         self.assertEqual(stats, validate_gold(self.destination, "test_source"))
+
+    def test_v1_contract_remains_readable_explicitly(self):
+        class IdentityMapping:
+            required_columns = set(GOLD_SCHEMA_V1.names)
+
+            def map_event(self, row):
+                return dict(row)
+
+        event = dict.fromkeys(GOLD_SCHEMA_V1.names)
+        event.update(event_id="id", source_dataset="test_source", event_type="search",
+                     event_origin="observed")
+        self.write_source([event], GOLD_SCHEMA_V1)
+        stats = write_gold(self.source, self.destination, IdentityMapping(), "test_source", VERSION)
+        self.assertEqual(pq.read_schema(self.destination), GOLD_SCHEMA)
+        self.assertEqual(stats, validate_gold(self.destination, "test_source"))
+
+        pq.write_table(pq.read_table(self.destination).select(GOLD_SCHEMA_V1.names), self.destination)
+        self.assertEqual(validate_gold(self.destination, "test_source", schema=GOLD_SCHEMA_V1)["rows"], 1)
+        with self.assertRaisesRegex(ValueError, "V2 contract"):
+            validate_gold(self.destination, "test_source")

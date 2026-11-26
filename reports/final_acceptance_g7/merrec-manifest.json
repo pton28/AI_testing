@@ -1,0 +1,468 @@
+{
+  "acceptance_status": "NOT_TESTED",
+  "actual_metrics": {
+    "als_interactions_rows": 429812,
+    "als_total_interactions": 515601,
+    "ambiguous_events": 393,
+    "bronze_events": 605269,
+    "gold_v3_events": 515601,
+    "product_coverage": "100% (writer validation + exact G6 logical match)",
+    "product_dimension_rows": 431734,
+    "session_sequences": 112859,
+    "shared_session_keys": 0,
+    "silver_events": 605269,
+    "total_sequence_events": 515601,
+    "unique_session_keys": 112859
+  },
+  "configuration_fingerprint": {
+    "file": "data/datasets.json",
+    "sha256": "09ff236f6f977f092229811cc74c5d75dea646d03fa59b95186ee4b2114d3bc4"
+  },
+  "dataset_name": "merrec",
+  "event_distribution": {
+    "add_to_cart": 10168,
+    "product_view": 504756,
+    "purchase": 677
+  },
+  "logical_comparisons_to_accepted_baselines": {
+    "als_matches_g6": true,
+    "gold_v3_matches_g4": true,
+    "product_dimension_matches_g5": true,
+    "session_sequences_match_g6": true,
+    "silver_matches_g4": true
+  },
+  "object_keys": {
+    "als_interactions": {
+      "interaction_count_total": 515601,
+      "key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/model_ready/als_interactions.parquet",
+      "row_count": 429812,
+      "sha256": "56fe859d8afa449dd1cfecbfcf7b9316120d1c9d6d3f9b0af34373cc9b88ec9d"
+    },
+    "bronze": {
+      "key": "bronze/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/000000000030.parquet",
+      "row_count": 605269,
+      "sha256": "3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca"
+    },
+    "gold_v3": {
+      "key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+      "row_count": 515601,
+      "sha256": "2f3238c194f63a2a1063b2afa90b212937d3912dd1762be0553e562d865982fd"
+    },
+    "product_dimension": {
+      "key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/products.parquet",
+      "row_count": 431734,
+      "sha256": "21099bd32a598289dbd238af56b62d46b1db7fd37d71b2dffc768eac14b947e0"
+    },
+    "session_sequences": {
+      "key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/model_ready/session_sequences.parquet",
+      "row_count": 112859,
+      "sha256": "430e2625383b28387a1ed753b33dbbf3ac726a6e33f0219f7852d2e99f53f411",
+      "total_sequence_events": 515601
+    },
+    "silver": {
+      "key": "silver/merrec/merrec_events/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+      "row_count": 605269,
+      "sha256": "3226b14ab6ec45adf345bfeed0cb4ce23502dfc61d86f6e71e3d1613cc729214"
+    }
+  },
+  "pipeline_code_version": {
+    "dirty_worktree": true,
+    "git_commit": "54574612e8dbce433f47b901b3f7dbe42d1020e0"
+  },
+  "processing_timestamp_utc": "2026-11-26T11:42:51.701917+00:00",
+  "product_dimension_stats": {
+    "missing_counts": {
+      "brand": 85771,
+      "category_code": 28130,
+      "category_id": 28130,
+      "price": 0,
+      "product_name": 0
+    },
+    "missing_rates": {
+      "brand": 0.1986663084213891,
+      "category_code": 0.0651558598581534,
+      "category_id": 0.0651558598581534,
+      "price": 0.0,
+      "product_name": 0.0
+    }
+  },
+  "publication_plan": [
+    {
+      "action": "PENDING_USER_APPROVAL",
+      "existing_proposed_key": true,
+      "preserved_legacy_object": null,
+      "proposed_official_key": "bronze/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/000000000030.parquet",
+      "role": "bronze",
+      "tested_key": "bronze/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/000000000030.parquet"
+    },
+    {
+      "action": "PENDING_USER_APPROVAL",
+      "existing_proposed_key": false,
+      "preserved_legacy_object": {
+        "action": "PRESERVE; DO NOT OVERWRITE",
+        "key": "silver/merrec/merrec_events/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+        "logical_content_equal_to_test_output": false,
+        "sha256": "a59a32b8090098d453ce62870a5d7164da6e9db6e32927c7639913398684fa01"
+      },
+      "proposed_official_key": "silver/merrec/merrec_events/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/event-preservation-g3/events.parquet",
+      "role": "silver",
+      "tested_key": "silver/merrec/merrec_events/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet"
+    },
+    {
+      "action": "PENDING_USER_APPROVAL",
+      "existing_proposed_key": false,
+      "preserved_legacy_object": null,
+      "proposed_official_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+      "role": "gold_v3",
+      "tested_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet"
+    },
+    {
+      "action": "PENDING_USER_APPROVAL",
+      "existing_proposed_key": false,
+      "preserved_legacy_object": null,
+      "proposed_official_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/products.parquet",
+      "role": "product_dimension",
+      "tested_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/products.parquet"
+    },
+    {
+      "action": "PENDING_USER_APPROVAL",
+      "existing_proposed_key": false,
+      "preserved_legacy_object": null,
+      "proposed_official_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/model_ready/als_interactions.parquet",
+      "role": "als_interactions",
+      "tested_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/model_ready/als_interactions.parquet"
+    },
+    {
+      "action": "PENDING_USER_APPROVAL",
+      "existing_proposed_key": false,
+      "preserved_legacy_object": null,
+      "proposed_official_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/model_ready/session_sequences.parquet",
+      "role": "session_sequences",
+      "tested_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/model_ready/session_sequences.parquet"
+    }
+  ],
+  "publication_status": "PENDING_USER_APPROVAL",
+  "reproducibility_status": "NOT_TESTED",
+  "row_counts": {
+    "als_interactions": 429812,
+    "bronze": 605269,
+    "gold_v3": 515601,
+    "product_dimension": 431734,
+    "session_sequences": 112859,
+    "silver": 605269
+  },
+  "schema_fingerprints": {
+    "als_interactions": {
+      "contract": "ALS_INTERACTIONS_SCHEMA",
+      "fields": [
+        {
+          "name": "user_id",
+          "nullable": false,
+          "type": "string"
+        },
+        {
+          "name": "product_id",
+          "nullable": false,
+          "type": "string"
+        },
+        {
+          "name": "view_count",
+          "nullable": false,
+          "type": "int64"
+        },
+        {
+          "name": "cart_count",
+          "nullable": false,
+          "type": "int64"
+        },
+        {
+          "name": "purchase_count",
+          "nullable": false,
+          "type": "int64"
+        },
+        {
+          "name": "interaction_count",
+          "nullable": false,
+          "type": "int64"
+        },
+        {
+          "name": "last_interaction_at",
+          "nullable": true,
+          "type": "timestamp[us, tz=UTC]"
+        }
+      ],
+      "fingerprint_sha256": "812ab2ba6b0b93d01dccf8c109283b7fa0fb74dc884ef003966e2bb22c512c8c"
+    },
+    "gold_v3": {
+      "contract": "GOLD_SCHEMA_V3",
+      "fields": [
+        {
+          "name": "event_id",
+          "nullable": false,
+          "type": "string"
+        },
+        {
+          "name": "source_dataset",
+          "nullable": false,
+          "type": "string"
+        },
+        {
+          "name": "event_type",
+          "nullable": false,
+          "type": "string"
+        },
+        {
+          "name": "event_time",
+          "nullable": true,
+          "type": "timestamp[us, tz=UTC]"
+        },
+        {
+          "name": "user_id",
+          "nullable": true,
+          "type": "string"
+        },
+        {
+          "name": "session_id",
+          "nullable": true,
+          "type": "string"
+        },
+        {
+          "name": "position_in_session",
+          "nullable": true,
+          "type": "int32"
+        },
+        {
+          "name": "product_id",
+          "nullable": true,
+          "type": "string"
+        },
+        {
+          "name": "query_text",
+          "nullable": true,
+          "type": "string"
+        },
+        {
+          "name": "rating_value",
+          "nullable": true,
+          "type": "float"
+        },
+        {
+          "name": "event_origin",
+          "nullable": false,
+          "type": "string"
+        },
+        {
+          "name": "session_key",
+          "nullable": true,
+          "type": "string"
+        },
+        {
+          "name": "order_ambiguous",
+          "nullable": true,
+          "type": "bool"
+        }
+      ],
+      "fingerprint_sha256": "fbe4763adf75facb9d686fa99581bc1d09215c4f1ff787c2bd55e4df5eb85c5c"
+    },
+    "product_dimension": {
+      "contract": "PRODUCT_DIMENSION_SCHEMA",
+      "fields": [
+        {
+          "name": "source_dataset",
+          "nullable": false,
+          "type": "string"
+        },
+        {
+          "name": "product_id",
+          "nullable": false,
+          "type": "string"
+        },
+        {
+          "name": "product_name",
+          "nullable": true,
+          "type": "string"
+        },
+        {
+          "name": "brand",
+          "nullable": true,
+          "type": "string"
+        },
+        {
+          "name": "category_id",
+          "nullable": true,
+          "type": "string"
+        },
+        {
+          "name": "category_code",
+          "nullable": true,
+          "type": "string"
+        },
+        {
+          "name": "price",
+          "nullable": true,
+          "type": "decimal128(18, 2)"
+        },
+        {
+          "name": "product_name_observed_at",
+          "nullable": true,
+          "type": "timestamp[us, tz=UTC]"
+        },
+        {
+          "name": "brand_observed_at",
+          "nullable": true,
+          "type": "timestamp[us, tz=UTC]"
+        },
+        {
+          "name": "category_id_observed_at",
+          "nullable": true,
+          "type": "timestamp[us, tz=UTC]"
+        },
+        {
+          "name": "category_code_observed_at",
+          "nullable": true,
+          "type": "timestamp[us, tz=UTC]"
+        },
+        {
+          "name": "price_observed_at",
+          "nullable": true,
+          "type": "timestamp[us, tz=UTC]"
+        }
+      ],
+      "fingerprint_sha256": "fdadf77b4b92328e1f07e2dcb03ff1b64d8c832e6e1e734a8979a1b6655e4048"
+    },
+    "session_sequences": {
+      "contract": "SESSION_SEQUENCES_SCHEMA",
+      "fields": [
+        {
+          "name": "session_key",
+          "nullable": false,
+          "type": "string"
+        },
+        {
+          "name": "user_id",
+          "nullable": false,
+          "type": "string"
+        },
+        {
+          "name": "item_sequence",
+          "nullable": false,
+          "type": "list<element: string>"
+        },
+        {
+          "name": "event_sequence",
+          "nullable": false,
+          "type": "list<element: string>"
+        },
+        {
+          "name": "timestamp_sequence",
+          "nullable": false,
+          "type": "list<element: timestamp[us, tz=UTC]>"
+        },
+        {
+          "name": "sequence_length",
+          "nullable": false,
+          "type": "int32"
+        },
+        {
+          "name": "has_ambiguous_order",
+          "nullable": false,
+          "type": "bool"
+        }
+      ],
+      "fingerprint_sha256": "4979ccdfb7c85f534bd93df5969c7b480dd38cbd184e763f10dcc76157b6537a"
+    },
+    "silver": {
+      "contract": "merrec_events.silver_schema",
+      "fields": [
+        {
+          "name": "event_time",
+          "nullable": false,
+          "type": "timestamp[us, tz=UTC]"
+        },
+        {
+          "name": "event_type",
+          "nullable": false,
+          "type": "string"
+        },
+        {
+          "name": "user_id",
+          "nullable": false,
+          "type": "string"
+        },
+        {
+          "name": "product_id",
+          "nullable": false,
+          "type": "string"
+        },
+        {
+          "name": "session_id",
+          "nullable": true,
+          "type": "string"
+        },
+        {
+          "name": "category_id",
+          "nullable": true,
+          "type": "string"
+        },
+        {
+          "name": "category_code",
+          "nullable": true,
+          "type": "string"
+        },
+        {
+          "name": "brand",
+          "nullable": true,
+          "type": "string"
+        },
+        {
+          "name": "price",
+          "nullable": true,
+          "type": "decimal128(18, 2)"
+        },
+        {
+          "name": "source_event_type",
+          "nullable": true,
+          "type": "string"
+        },
+        {
+          "name": "source_product_id",
+          "nullable": true,
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "nullable": true,
+          "type": "string"
+        },
+        {
+          "name": "sequence_id",
+          "nullable": true,
+          "type": "string"
+        },
+        {
+          "name": "sequence_length",
+          "nullable": true,
+          "type": "int64"
+        },
+        {
+          "name": "source_attributes",
+          "nullable": true,
+          "type": "string"
+        }
+      ],
+      "fingerprint_sha256": "01be34c6f66b1f564378ff337c6bedd69bee152621187340dc5932c82e113699"
+    }
+  },
+  "schema_versions": {
+    "als_interactions": "ALS_INTERACTIONS_SCHEMA",
+    "bronze": "source-native",
+    "gold": "GOLD_SCHEMA_V3",
+    "product_dimension": "PRODUCT_DIMENSION_SCHEMA",
+    "session_sequences": "SESSION_SEQUENCES_SCHEMA",
+    "silver": "merrec_events.silver_schema"
+  },
+  "source_sha256": "3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca",
+  "source_version": "3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca",
+  "test_bucket": "nutee-final-acceptance-g7-test-20261126-181223",
+  "verification_status": "PARTIAL_SINGLE_PASS"
+}

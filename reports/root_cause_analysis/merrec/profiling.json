@@ -1,0 +1,1086 @@
+{
+  "dataset": "merrec",
+  "source_version_sha256": "3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca",
+  "object_keys": {
+    "bronze": "bronze/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/000000000030.parquet",
+    "silver": "silver/merrec/merrec_events/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+    "gold": "gold/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet"
+  },
+  "object_metadata": {
+    "bronze": [
+      {
+        "object_key": "bronze/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/000000000030.parquet",
+        "size_bytes": 78281865,
+        "etag": "da0ac2bae7b530624a3802e8dfcdcbd8-15",
+        "last_modified_utc": "2026-11-25T04:48:13.118000+00:00",
+        "version_id": null,
+        "is_latest": null,
+        "listed_version_count_for_prefix": 1,
+        "listed_version_ids": [
+          "null"
+        ]
+      }
+    ],
+    "silver": [
+      {
+        "object_key": "silver/merrec/merrec_events/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+        "size_bytes": 98862661,
+        "etag": "35b252efbc6396b461731c9224a7b578-19",
+        "last_modified_utc": "2026-11-25T04:48:32.994000+00:00",
+        "version_id": null,
+        "is_latest": null,
+        "listed_version_count_for_prefix": 1,
+        "listed_version_ids": [
+          "null"
+        ]
+      }
+    ],
+    "gold": [
+      {
+        "object_key": "gold/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+        "size_bytes": 51527901,
+        "etag": "a6bc35cbc2bf32d1d642447ef4c70ee3-10",
+        "last_modified_utc": "2026-11-25T04:49:06.694000+00:00",
+        "version_id": null,
+        "is_latest": null,
+        "listed_version_count_for_prefix": 1,
+        "listed_version_ids": [
+          "null"
+        ]
+      }
+    ]
+  },
+  "bronze": {
+    "physical_rows": 605269,
+    "modeled_rows": 515601,
+    "raw_event_counts": {
+      "buy_comp": 677,
+      "buy_start": 1837,
+      "item_add_to_cart_tap": 10168,
+      "item_like": 83571,
+      "item_view": 504756,
+      "offer_make": 4260
+    },
+    "event_counts": {
+      "add_to_cart": 10168,
+      "product_view": 504756,
+      "purchase": 677
+    },
+    "unique_users": 9208,
+    "unique_products": 416784,
+    "unique_sessions_nonnull": 112619,
+    "unique_user_scoped_sessions": 112859,
+    "raw_unique_user_scoped_sessions": 115282,
+    "missing_session_rows": 0,
+    "null_session_rows": 0,
+    "empty_session_rows": 0,
+    "shared_sessions_by_user_count": 2614,
+    "shared_session_user_count": 2493,
+    "shared_session_event_rows": 28304,
+    "unique_user_item_pairs": 429812,
+    "user_item_matrix_sparsity": 0.999888004084,
+    "session_length": {
+      "count": 110314,
+      "min": 1,
+      "median": 2,
+      "p90": 11,
+      "p95": 17,
+      "p99": 36,
+      "max": 238,
+      "mean": 4.67394
+    },
+    "user_scoped_session_length": {
+      "count": 112859,
+      "min": 1,
+      "median": 2,
+      "p90": 11,
+      "p95": 16,
+      "p99": 35,
+      "max": 238,
+      "mean": 4.568541
+    },
+    "raw_user_scoped_session_length": {
+      "count": 115282,
+      "min": 1,
+      "median": 2,
+      "p90": 12,
+      "p95": 19,
+      "p99": 42,
+      "max": 301,
+      "mean": 5.250334
+    },
+    "sessions_with_at_least_two_events": 68086,
+    "user_scoped_sessions_with_at_least_two_events": 68670,
+    "raw_user_scoped_sessions_with_at_least_two_events": 74060,
+    "sessions_with_at_least_two_events_pct": 61.720181,
+    "user_distinct_product_count": {
+      "count": 9208,
+      "min": 1,
+      "median": 10,
+      "p90": 111,
+      "p95": 198,
+      "p99": 524,
+      "max": 5728,
+      "mean": 46.678106
+    },
+    "users_with_at_least_two_distinct_products": 7577,
+    "product_event_count": {
+      "count": 416784,
+      "min": 1,
+      "median": 1,
+      "p90": 2,
+      "p95": 2,
+      "p99": 5,
+      "max": 71,
+      "mean": 1.237094
+    },
+    "products_with_exactly_one_event": 359117,
+    "products_with_exactly_one_event_pct": 86.163816,
+    "product_distinct_user_count": {
+      "count": 416784,
+      "min": 1,
+      "median": 1,
+      "p90": 1,
+      "p95": 1,
+      "p99": 2,
+      "max": 8,
+      "mean": 1.031258
+    },
+    "same_session_timestamp_groups": 4446,
+    "events_in_same_session_timestamp_groups": 8994,
+    "same_session_timestamp_groups_with_multiple_users": 114,
+    "same_session_timestamp_groups_with_multiple_products": 139,
+    "same_session_timestamp_groups_with_multiple_event_types": 3823,
+    "same_user_session_timestamp_groups": 4334,
+    "events_in_same_user_session_timestamp_groups": 8768,
+    "duplicate_interaction_content_groups": 76,
+    "duplicate_interaction_rows_after_first": 110,
+    "exact_full_source_row_duplicate_groups": 507,
+    "exact_full_source_duplicate_rows_after_first": 578,
+    "exact_full_source_duplicate_groups_in_modeled_rows": 75,
+    "exact_full_source_duplicate_modeled_rows_after_first": 108,
+    "missing_metadata": {
+      "brand": {
+        "present_rows": 486989,
+        "missing_rows": 118280,
+        "missing_pct_of_rows": 19.541724,
+        "modeled_rows_present": 411780,
+        "modeled_rows_missing": 103821,
+        "modeled_missing_pct": 20.135919,
+        "missing_rows_with_value_elsewhere_same_product": 0,
+        "distinct_values": 10128
+      },
+      "category_id": {
+        "present_rows": 566208,
+        "missing_rows": 39061,
+        "missing_pct_of_rows": 6.453494,
+        "modeled_rows_present": 480908,
+        "modeled_rows_missing": 34693,
+        "modeled_missing_pct": 6.728653,
+        "missing_rows_with_value_elsewhere_same_product": 0,
+        "distinct_values": 2350
+      },
+      "category_code": {
+        "present_rows": 566208,
+        "missing_rows": 39061,
+        "missing_pct_of_rows": 6.453494,
+        "modeled_rows_present": 480908,
+        "modeled_rows_missing": 34693,
+        "modeled_missing_pct": 6.728653,
+        "missing_rows_with_value_elsewhere_same_product": 0,
+        "distinct_values": 1935
+      }
+    },
+    "category_id_category_code_pairs": 2350,
+    "category_ids_with_multiple_codes": 0,
+    "category_codes_with_multiple_ids": 194,
+    "sequence_fields_present": [
+      "sequence_id",
+      "sequence_length"
+    ],
+    "source_timestamp_fraction_digits": {
+      "0": 605269
+    },
+    "metadata_rows": 605269
+  },
+  "silver": {
+    "physical_rows": 515601,
+    "modeled_rows": 515601,
+    "raw_event_counts": {
+      "buy_comp": 677,
+      "item_add_to_cart_tap": 10168,
+      "item_view": 504756
+    },
+    "event_counts": {
+      "add_to_cart": 10168,
+      "product_view": 504756,
+      "purchase": 677
+    },
+    "unique_users": 9208,
+    "unique_products": 416784,
+    "unique_sessions_nonnull": 110314,
+    "unique_user_scoped_sessions": 112859,
+    "raw_unique_user_scoped_sessions": 112859,
+    "missing_session_rows": 0,
+    "null_session_rows": 0,
+    "empty_session_rows": 0,
+    "shared_sessions_by_user_count": 2498,
+    "shared_session_user_count": 2434,
+    "shared_session_event_rows": 23612,
+    "unique_user_item_pairs": 429812,
+    "user_item_matrix_sparsity": 0.999888004084,
+    "session_length": {
+      "count": 110314,
+      "min": 1,
+      "median": 2,
+      "p90": 11,
+      "p95": 17,
+      "p99": 36,
+      "max": 238,
+      "mean": 4.67394
+    },
+    "user_scoped_session_length": {
+      "count": 112859,
+      "min": 1,
+      "median": 2,
+      "p90": 11,
+      "p95": 16,
+      "p99": 35,
+      "max": 238,
+      "mean": 4.568541
+    },
+    "raw_user_scoped_session_length": {
+      "count": 112859,
+      "min": 1,
+      "median": 2,
+      "p90": 11,
+      "p95": 16,
+      "p99": 35,
+      "max": 238,
+      "mean": 4.568541
+    },
+    "sessions_with_at_least_two_events": 68086,
+    "user_scoped_sessions_with_at_least_two_events": 68670,
+    "raw_user_scoped_sessions_with_at_least_two_events": 68670,
+    "sessions_with_at_least_two_events_pct": 61.720181,
+    "user_distinct_product_count": {
+      "count": 9208,
+      "min": 1,
+      "median": 10,
+      "p90": 111,
+      "p95": 198,
+      "p99": 524,
+      "max": 5728,
+      "mean": 46.678106
+    },
+    "users_with_at_least_two_distinct_products": 7577,
+    "product_event_count": {
+      "count": 416784,
+      "min": 1,
+      "median": 1,
+      "p90": 2,
+      "p95": 2,
+      "p99": 5,
+      "max": 71,
+      "mean": 1.237094
+    },
+    "products_with_exactly_one_event": 359117,
+    "products_with_exactly_one_event_pct": 86.163816,
+    "product_distinct_user_count": {
+      "count": 416784,
+      "min": 1,
+      "median": 1,
+      "p90": 1,
+      "p95": 1,
+      "p99": 2,
+      "max": 8,
+      "mean": 1.031258
+    },
+    "same_session_timestamp_groups": 270,
+    "events_in_same_session_timestamp_groups": 577,
+    "same_session_timestamp_groups_with_multiple_users": 92,
+    "same_session_timestamp_groups_with_multiple_products": 115,
+    "same_session_timestamp_groups_with_multiple_event_types": 85,
+    "same_user_session_timestamp_groups": 178,
+    "events_in_same_user_session_timestamp_groups": 393,
+    "duplicate_interaction_content_groups": 76,
+    "duplicate_interaction_rows_after_first": 110,
+    "exact_full_source_row_duplicate_groups": 0,
+    "exact_full_source_duplicate_rows_after_first": 0,
+    "exact_full_source_duplicate_groups_in_modeled_rows": 0,
+    "exact_full_source_duplicate_modeled_rows_after_first": 0,
+    "missing_metadata": {
+      "brand": {
+        "present_rows": 411780,
+        "missing_rows": 103821,
+        "missing_pct_of_rows": 20.135919,
+        "modeled_rows_present": 411780,
+        "modeled_rows_missing": 103821,
+        "modeled_missing_pct": 20.135919,
+        "missing_rows_with_value_elsewhere_same_product": 0,
+        "distinct_values": 10122
+      },
+      "category_id": {
+        "present_rows": 480908,
+        "missing_rows": 34693,
+        "missing_pct_of_rows": 6.728653,
+        "modeled_rows_present": 480908,
+        "modeled_rows_missing": 34693,
+        "modeled_missing_pct": 6.728653,
+        "missing_rows_with_value_elsewhere_same_product": 0,
+        "distinct_values": 2350
+      },
+      "category_code": {
+        "present_rows": 480908,
+        "missing_rows": 34693,
+        "missing_pct_of_rows": 6.728653,
+        "modeled_rows_present": 480908,
+        "modeled_rows_missing": 34693,
+        "modeled_missing_pct": 6.728653,
+        "missing_rows_with_value_elsewhere_same_product": 0,
+        "distinct_values": 1935
+      }
+    },
+    "category_id_category_code_pairs": 2350,
+    "category_ids_with_multiple_codes": 0,
+    "category_codes_with_multiple_ids": 194,
+    "sequence_fields_present": [
+      "sequence_id",
+      "sequence_length"
+    ],
+    "source_timestamp_fraction_digits": {},
+    "metadata_rows": 515601
+  },
+  "gold": {
+    "physical_rows": 515601,
+    "modeled_rows": 515601,
+    "raw_event_counts": {
+      "add_to_cart": 10168,
+      "product_view": 504756,
+      "purchase": 677
+    },
+    "event_counts": {
+      "add_to_cart": 10168,
+      "product_view": 504756,
+      "purchase": 677
+    },
+    "unique_users": 9208,
+    "unique_products": 416784,
+    "unique_sessions_nonnull": 110314,
+    "unique_user_scoped_sessions": 112859,
+    "raw_unique_user_scoped_sessions": 112859,
+    "missing_session_rows": 0,
+    "null_session_rows": 0,
+    "empty_session_rows": 0,
+    "shared_sessions_by_user_count": 2498,
+    "shared_session_user_count": 2434,
+    "shared_session_event_rows": 23612,
+    "unique_user_item_pairs": 429812,
+    "user_item_matrix_sparsity": 0.999888004084,
+    "session_length": {
+      "count": 110314,
+      "min": 1,
+      "median": 2,
+      "p90": 11,
+      "p95": 17,
+      "p99": 36,
+      "max": 238,
+      "mean": 4.67394
+    },
+    "user_scoped_session_length": {
+      "count": 112859,
+      "min": 1,
+      "median": 2,
+      "p90": 11,
+      "p95": 16,
+      "p99": 35,
+      "max": 238,
+      "mean": 4.568541
+    },
+    "raw_user_scoped_session_length": {
+      "count": 112859,
+      "min": 1,
+      "median": 2,
+      "p90": 11,
+      "p95": 16,
+      "p99": 35,
+      "max": 238,
+      "mean": 4.568541
+    },
+    "sessions_with_at_least_two_events": 68086,
+    "user_scoped_sessions_with_at_least_two_events": 68670,
+    "raw_user_scoped_sessions_with_at_least_two_events": 68670,
+    "sessions_with_at_least_two_events_pct": 61.720181,
+    "user_distinct_product_count": {
+      "count": 9208,
+      "min": 1,
+      "median": 10,
+      "p90": 111,
+      "p95": 198,
+      "p99": 524,
+      "max": 5728,
+      "mean": 46.678106
+    },
+    "users_with_at_least_two_distinct_products": 7577,
+    "product_event_count": {
+      "count": 416784,
+      "min": 1,
+      "median": 1,
+      "p90": 2,
+      "p95": 2,
+      "p99": 5,
+      "max": 71,
+      "mean": 1.237094
+    },
+    "products_with_exactly_one_event": 359117,
+    "products_with_exactly_one_event_pct": 86.163816,
+    "product_distinct_user_count": {
+      "count": 416784,
+      "min": 1,
+      "median": 1,
+      "p90": 1,
+      "p95": 1,
+      "p99": 2,
+      "max": 8,
+      "mean": 1.031258
+    },
+    "same_session_timestamp_groups": 270,
+    "events_in_same_session_timestamp_groups": 577,
+    "same_session_timestamp_groups_with_multiple_users": 92,
+    "same_session_timestamp_groups_with_multiple_products": 115,
+    "same_session_timestamp_groups_with_multiple_event_types": 85,
+    "same_user_session_timestamp_groups": 178,
+    "events_in_same_user_session_timestamp_groups": 393,
+    "duplicate_interaction_content_groups": 76,
+    "duplicate_interaction_rows_after_first": 110,
+    "exact_full_source_row_duplicate_groups": 0,
+    "exact_full_source_duplicate_rows_after_first": 0,
+    "exact_full_source_duplicate_groups_in_modeled_rows": 0,
+    "exact_full_source_duplicate_modeled_rows_after_first": 0,
+    "missing_metadata": {},
+    "category_id_category_code_pairs": 0,
+    "category_ids_with_multiple_codes": 0,
+    "category_codes_with_multiple_ids": 0,
+    "sequence_fields_present": [
+      "position_in_session"
+    ],
+    "source_timestamp_fraction_digits": {},
+    "metadata_rows": 0
+  },
+  "bronze_to_silver_to_gold_lineage": {
+    "source_mapped_rows": 515601,
+    "silver_rows": 515601,
+    "gold_rows": 515601,
+    "bronze_to_silver_exact_signature_matches": 515601,
+    "bronze_mapped_rows_without_silver_match": 0,
+    "silver_to_gold_exact_signature_matches": 515601,
+    "silver_rows_without_gold_match": 0,
+    "comparison_fields": [
+      "event_time_UTC",
+      "event_type",
+      "user_id",
+      "product_id",
+      "session_id"
+    ],
+    "limitations": "Duplicate identical signatures can only be verified as multiset counts; no cross-layer row-number assumption."
+  },
+  "schema": {
+    "bronze_columns": [
+      "user_id",
+      "stime",
+      "session_id",
+      "sequence_id",
+      "sequence_length",
+      "event_id",
+      "item_id",
+      "product_id",
+      "name",
+      "price",
+      "c0_name",
+      "c0_id",
+      "c1_name",
+      "c1_id",
+      "c2_name",
+      "c2_id",
+      "brand_name",
+      "brand_id",
+      "item_condition_id",
+      "item_condition_name",
+      "size_name",
+      "size_id",
+      "color",
+      "shipper_id",
+      "shipper_name"
+    ],
+    "silver_columns": [
+      "event_time",
+      "event_type",
+      "user_id",
+      "product_id",
+      "session_id",
+      "category_id",
+      "category_code",
+      "brand",
+      "price",
+      "source_event_type",
+      "source_product_id",
+      "name",
+      "sequence_id",
+      "sequence_length",
+      "source_attributes"
+    ],
+    "gold_columns": [
+      "event_id",
+      "source_dataset",
+      "event_type",
+      "event_time",
+      "user_id",
+      "session_id",
+      "position_in_session",
+      "product_id",
+      "query_text",
+      "rating_value",
+      "event_origin"
+    ],
+    "bronze_types": {
+      "user_id": "int64",
+      "stime": "timestamp[us]",
+      "session_id": "string",
+      "sequence_id": "string",
+      "sequence_length": "int64",
+      "event_id": "string",
+      "item_id": "int64",
+      "product_id": "string",
+      "name": "string",
+      "price": "double",
+      "c0_name": "string",
+      "c0_id": "int64",
+      "c1_name": "string",
+      "c1_id": "int64",
+      "c2_name": "string",
+      "c2_id": "int64",
+      "brand_name": "string",
+      "brand_id": "int64",
+      "item_condition_id": "int64",
+      "item_condition_name": "string",
+      "size_name": "string",
+      "size_id": "int64",
+      "color": "string",
+      "shipper_id": "int64",
+      "shipper_name": "string"
+    },
+    "silver_types": {
+      "event_time": "timestamp[us, tz=UTC]",
+      "event_type": "string",
+      "user_id": "string",
+      "product_id": "string",
+      "session_id": "string",
+      "category_id": "string",
+      "category_code": "string",
+      "brand": "string",
+      "price": "decimal128(18, 2)",
+      "source_event_type": "string",
+      "source_product_id": "string",
+      "name": "string",
+      "sequence_id": "string",
+      "sequence_length": "int64",
+      "source_attributes": "string"
+    },
+    "gold_types": {
+      "event_id": "string",
+      "source_dataset": "string",
+      "event_type": "string",
+      "event_time": "timestamp[us, tz=UTC]",
+      "user_id": "string",
+      "session_id": "string",
+      "position_in_session": "int32",
+      "product_id": "string",
+      "query_text": "string",
+      "rating_value": "float",
+      "event_origin": "string"
+    }
+  },
+  "source_sha256_verified_against_bronze_key": true,
+  "source_sha256_actual": "3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca",
+  "bronze_to_silver_metadata_and_raw_attributes": {
+    "bronze_to_silver_metadata": {
+      "mapped_source_rows": 515601,
+      "silver_rows": 515601,
+      "bronze_to_silver_metadata_multiset_matches": 515601,
+      "metadata_rows_with_changed_or_unmatched_values": 0,
+      "method": "Multiset comparison by exact event signature plus canonical (brand, category_id, category_code, price); no row-number join.",
+      "source_attributes_multiset_check": {
+        "bronze_retained_source_rows": 515601,
+        "silver_source_attributes_rows": 515601,
+        "exact_full_raw_attribute_matches": 515601,
+        "bronze_rows_without_exact_source_attributes_match": 0,
+        "method": "Multiset match on event signature and canonical JSON of every source Parquet field."
+      }
+    }
+  },
+  "issue_findings": [
+    {
+      "issue_id": "01_session_shared_by_users",
+      "severity": "P0",
+      "affected": {
+        "bronze": {
+          "sessions": 2614,
+          "users": 2493,
+          "event_rows_in_shared_sessions": 28304
+        },
+        "silver": {
+          "sessions": 2498,
+          "users": 2434,
+          "event_rows_in_shared_sessions": 23612
+        },
+        "gold": {
+          "sessions": 2498,
+          "users": 2434,
+          "event_rows_in_shared_sessions": 23612
+        }
+      },
+      "root_cause": "Shared session IDs are already associated with multiple users in Bronze; Silver/Gold pass through the source session ID without namespacing by user.",
+      "classification": [
+        "SOURCE_DATA_ISSUE",
+        "DESIGN_DECISION"
+      ],
+      "confidence": "HIGH",
+      "proposed_fix": "Use a composite analytical session key (user_id, source_session_id) for session modeling while retaining the original source session_id unchanged for lineage."
+    },
+    {
+      "issue_id": "02_same_session_timestamp",
+      "severity": "P1",
+      "affected": {
+        "bronze": {
+          "groups": 4446,
+          "event_rows": 8994,
+          "user_scoped_groups": 4334,
+          "groups_with_multiple_users": 114,
+          "groups_with_multiple_products": 139,
+          "groups_with_multiple_event_types": 3823
+        },
+        "silver": {
+          "groups": 270,
+          "event_rows": 577,
+          "user_scoped_groups": 178,
+          "groups_with_multiple_users": 92,
+          "groups_with_multiple_products": 115,
+          "groups_with_multiple_event_types": 85
+        },
+        "gold": {
+          "groups": 270,
+          "event_rows": 577,
+          "user_scoped_groups": 178,
+          "groups_with_multiple_users": 92,
+          "groups_with_multiple_products": 115,
+          "groups_with_multiple_event_types": 85
+        }
+      },
+      "root_cause": "Equal timestamps occur in Bronze. The source contains no explicit per-event order field; pipeline timestamp normalization does not create one.",
+      "classification": [
+        "SOURCE_DATA_ISSUE",
+        "DATASET_LIMITATION"
+      ],
+      "confidence": "HIGH for collisions; UNVERIFIED for intended order within tied events.",
+      "proposed_fix": "Keep ties explicit; add a source-derived stable ordering field only if its semantics are documented. Do not treat file or Parquet row order as behavioral order."
+    },
+    {
+      "issue_id": "03_duplicate_interaction_content",
+      "severity": "P1",
+      "affected": {
+        "bronze": {
+          "exact_full_row_duplicate_groups": 507,
+          "exact_full_duplicate_rows_after_first": 578,
+          "mapped_interaction_duplicate_groups": 76,
+          "mapped_duplicate_rows_after_first": 110
+        },
+        "silver": {
+          "interaction_duplicate_groups": 76,
+          "duplicate_rows_after_first": 110
+        },
+        "gold": {
+          "interaction_duplicate_groups": 76,
+          "duplicate_rows_after_first": 110
+        }
+      },
+      "root_cause": "Repeated content is present in Bronze. Gold IDs are intentionally generated per Silver row, so identical interactions retain different IDs; no excess row-count growth is observed across the layers.",
+      "classification": [
+        "SOURCE_DATA_ISSUE",
+        "DESIGN_DECISION",
+        "UNVERIFIED"
+      ],
+      "confidence": "HIGH that repeated records exist and persist; UNVERIFIED whether repeats are accidental or valid repeated behavior.",
+      "proposed_fix": "Do not deduplicate automatically. Add a reviewable duplicate policy and preserve raw events; report exact-source duplicates separately from repeated interaction signatures."
+    },
+    {
+      "issue_id": "04_missing_position_in_session",
+      "severity": "P1",
+      "affected": {
+        "bronze": {
+          "rows_without_explicit_position": 605269
+        },
+        "silver": {
+          "rows_without_position_in_session": 515601
+        },
+        "gold": {
+          "rows_with_null_position_in_session": 515601
+        }
+      },
+      "root_cause": "Neither Bronze schema provides an explicit event position. MerRec has sequence_id and sequence_length, but not a per-event position. Gold adapter leaves position_in_session null.",
+      "classification": [
+        "DATASET_LIMITATION",
+        "DESIGN_DECISION"
+      ],
+      "confidence": "HIGH for missing explicit position; UNVERIFIED that a position can be reconstructed from timestamp ties or source row order.",
+      "proposed_fix": "Keep position null until a semantically valid source order is available; expose sequence_id/sequence_length as metadata, not as an invented position."
+    },
+    {
+      "issue_id": "05_missing_session",
+      "severity": "P1",
+      "affected": {
+        "bronze": {
+          "null_or_empty_rows": 0,
+          "null_rows": 0,
+          "empty_rows": 0
+        },
+        "silver": {
+          "null_or_empty_rows": 0,
+          "null_rows": 0,
+          "empty_rows": 0
+        },
+        "gold": {
+          "null_or_empty_rows": 0,
+          "null_rows": 0,
+          "empty_rows": 0
+        }
+      },
+      "root_cause": "Missing session values are present at Bronze and preserved by the mappings; Gold copies the nullable session field.",
+      "classification": [
+        "SOURCE_DATA_ISSUE",
+        "DESIGN_DECISION"
+      ],
+      "confidence": "HIGH",
+      "proposed_fix": "Preserve null sessions and exclude them from session-based grouping; do not infer session IDs without a documented sessionization rule."
+    },
+    {
+      "issue_id": "06_excluded_bronze_events",
+      "severity": "P1",
+      "affected": {
+        "bronze_excluded_event_counts": {
+          "buy_start": 1837,
+          "item_like": 83571,
+          "offer_make": 4260
+        },
+        "excluded_rows": 89668,
+        "silver_rows_excluded": 89668,
+        "gold_rows_excluded": 89668
+      },
+      "root_cause": "Merrec adapter explicitly filters item_like, offer_make, and buy_start before Silver; they are outside the configured 6-event Gold contract.",
+      "classification": [
+        "DESIGN_DECISION"
+      ],
+      "confidence": "HIGH",
+      "proposed_fix": "Keep source actions in Bronze and record excluded counts in run metadata. Add a new normalized event only after defining its semantics and evaluating the event contract."
+    },
+    {
+      "issue_id": "07_purchase_imbalance",
+      "severity": "P2",
+      "affected": {
+        "bronze_purchase_events": 677,
+        "bronze_rows": 605269,
+        "gold_purchase_events": 677,
+        "gold_rows": 515601,
+        "gold_purchase_pct_of_events": 0.131303,
+        "not_a_conversion_rate": true
+      },
+      "root_cause": "Purchase frequency is the observed distribution of this snapshot after the configured event mapping; no Gold filtering of supported purchase events is observed.",
+      "classification": [
+        "SOURCE_DATA_ISSUE",
+        "DATASET_LIMITATION"
+      ],
+      "confidence": "HIGH for counts; conversion interpretation is not supported by this event-log denominator.",
+      "proposed_fix": "Report event prevalence; use a conversion metric only with defined eligible users/sessions, exposure, and attribution windows."
+    },
+    {
+      "issue_id": "08_products_with_one_event",
+      "severity": "P2",
+      "affected": {
+        "bronze_profile_scope": "All source events; item counts are from mapped interactions.",
+        "silver": {
+          "unique_users": 9208,
+          "unique_products": 416784,
+          "unique_sessions_raw_ids": 110314,
+          "unique_user_scoped_sessions": 112859,
+          "unique_user_item_pairs": 429812,
+          "user_item_matrix_sparsity": 0.999888004084,
+          "products_with_one_event": 359117,
+          "products_with_one_event_pct": 86.163816,
+          "sessions_at_least_two_events_raw_ids": 68086,
+          "sessions_at_least_two_events_user_scoped": 68670,
+          "users_at_least_two_distinct_products": 7577,
+          "session_length_raw_ids": {
+            "count": 110314,
+            "min": 1,
+            "median": 2,
+            "p90": 11,
+            "p95": 17,
+            "p99": 36,
+            "max": 238,
+            "mean": 4.67394
+          },
+          "session_length_user_scoped": {
+            "count": 112859,
+            "min": 1,
+            "median": 2,
+            "p90": 11,
+            "p95": 16,
+            "p99": 35,
+            "max": 238,
+            "mean": 4.568541
+          }
+        },
+        "gold": {
+          "unique_users": 9208,
+          "unique_products": 416784,
+          "unique_sessions_raw_ids": 110314,
+          "unique_user_scoped_sessions": 112859,
+          "unique_user_item_pairs": 429812,
+          "user_item_matrix_sparsity": 0.999888004084,
+          "products_with_one_event": 359117,
+          "products_with_one_event_pct": 86.163816,
+          "sessions_at_least_two_events_raw_ids": 68086,
+          "sessions_at_least_two_events_user_scoped": 68670,
+          "users_at_least_two_distinct_products": 7577,
+          "session_length_raw_ids": {
+            "count": 110314,
+            "min": 1,
+            "median": 2,
+            "p90": 11,
+            "p95": 17,
+            "p99": 36,
+            "max": 238,
+            "mean": 4.67394
+          },
+          "session_length_user_scoped": {
+            "count": 112859,
+            "min": 1,
+            "median": 2,
+            "p90": 11,
+            "p95": 16,
+            "p99": 35,
+            "max": 238,
+            "mean": 4.568541
+          }
+        }
+      },
+      "root_cause": "Long-tail product frequency and sparse user-item interactions are present in the observed snapshot; for MerRec the configured scope is one sample shard.",
+      "classification": [
+        "DATASET_LIMITATION"
+      ],
+      "confidence": "HIGH for this snapshot; not generalizable to the full MerRec dataset.",
+      "proposed_fix": "State snapshot scope in benchmarks; defer K-core filtering and train/test design to an explicit experiment protocol."
+    },
+    {
+      "issue_id": "09_missing_brand",
+      "severity": "P2",
+      "affected": {
+        "bronze": {
+          "present_rows": 486989,
+          "missing_rows": 118280,
+          "missing_pct_of_rows": 19.541724,
+          "modeled_rows_present": 411780,
+          "modeled_rows_missing": 103821,
+          "modeled_missing_pct": 20.135919,
+          "missing_rows_with_value_elsewhere_same_product": 0,
+          "distinct_values": 10128
+        },
+        "silver": {
+          "present_rows": 411780,
+          "missing_rows": 103821,
+          "missing_pct_of_rows": 20.135919,
+          "modeled_rows_present": 411780,
+          "modeled_rows_missing": 103821,
+          "modeled_missing_pct": 20.135919,
+          "missing_rows_with_value_elsewhere_same_product": 0,
+          "distinct_values": 10122
+        },
+        "gold": "NOT_IN_GOLD_SCHEMA",
+        "bronze_to_silver_mapping_check": {
+          "mapped_source_rows": 515601,
+          "silver_rows": 515601,
+          "bronze_to_silver_metadata_multiset_matches": 515601,
+          "metadata_rows_with_changed_or_unmatched_values": 0,
+          "method": "Multiset comparison by exact event signature plus canonical (brand, category_id, category_code, price); no row-number join.",
+          "source_attributes_multiset_check": {
+            "bronze_retained_source_rows": 515601,
+            "silver_source_attributes_rows": 515601,
+            "exact_full_raw_attribute_matches": 515601,
+            "bronze_rows_without_exact_source_attributes_match": 0,
+            "method": "Multiset match on event signature and canonical JSON of every source Parquet field."
+          }
+        },
+        "recoverable_from_same_product_rows": 0
+      },
+      "root_cause": "For available fields, missing values originate in Bronze and are preserved by the Silver mapping. Gold intentionally has no brand/category fields in its 11-column event contract.",
+      "classification": [
+        "SOURCE_DATA_ISSUE",
+        "DESIGN_DECISION"
+      ],
+      "confidence": "HIGH for observed coverage and mapping equality; Gold omission is confirmed by its schema.",
+      "proposed_fix": "Use Silver/source_attributes for semantic features or add a separately versioned product dimension; do not synthesize missing catalog values."
+    },
+    {
+      "issue_id": "10_missing_category_id",
+      "severity": "P2",
+      "affected": {
+        "bronze": {
+          "present_rows": 566208,
+          "missing_rows": 39061,
+          "missing_pct_of_rows": 6.453494,
+          "modeled_rows_present": 480908,
+          "modeled_rows_missing": 34693,
+          "modeled_missing_pct": 6.728653,
+          "missing_rows_with_value_elsewhere_same_product": 0,
+          "distinct_values": 2350
+        },
+        "silver": {
+          "present_rows": 480908,
+          "missing_rows": 34693,
+          "missing_pct_of_rows": 6.728653,
+          "modeled_rows_present": 480908,
+          "modeled_rows_missing": 34693,
+          "modeled_missing_pct": 6.728653,
+          "missing_rows_with_value_elsewhere_same_product": 0,
+          "distinct_values": 2350
+        },
+        "gold": "NOT_IN_GOLD_SCHEMA",
+        "bronze_to_silver_mapping_check": {
+          "mapped_source_rows": 515601,
+          "silver_rows": 515601,
+          "bronze_to_silver_metadata_multiset_matches": 515601,
+          "metadata_rows_with_changed_or_unmatched_values": 0,
+          "method": "Multiset comparison by exact event signature plus canonical (brand, category_id, category_code, price); no row-number join.",
+          "source_attributes_multiset_check": {
+            "bronze_retained_source_rows": 515601,
+            "silver_source_attributes_rows": 515601,
+            "exact_full_raw_attribute_matches": 515601,
+            "bronze_rows_without_exact_source_attributes_match": 0,
+            "method": "Multiset match on event signature and canonical JSON of every source Parquet field."
+          }
+        },
+        "recoverable_from_same_product_rows": 0
+      },
+      "root_cause": "For available fields, missing values originate in Bronze and are preserved by the Silver mapping. Gold intentionally has no brand/category fields in its 11-column event contract.",
+      "classification": [
+        "SOURCE_DATA_ISSUE",
+        "DESIGN_DECISION"
+      ],
+      "confidence": "HIGH for observed coverage and mapping equality; Gold omission is confirmed by its schema.",
+      "proposed_fix": "Use Silver/source_attributes for semantic features or add a separately versioned product dimension; do not synthesize missing catalog values."
+    },
+    {
+      "issue_id": "11_missing_category_code",
+      "severity": "P2",
+      "affected": {
+        "bronze": {
+          "present_rows": 566208,
+          "missing_rows": 39061,
+          "missing_pct_of_rows": 6.453494,
+          "modeled_rows_present": 480908,
+          "modeled_rows_missing": 34693,
+          "modeled_missing_pct": 6.728653,
+          "missing_rows_with_value_elsewhere_same_product": 0,
+          "distinct_values": 1935
+        },
+        "silver": {
+          "present_rows": 480908,
+          "missing_rows": 34693,
+          "missing_pct_of_rows": 6.728653,
+          "modeled_rows_present": 480908,
+          "modeled_rows_missing": 34693,
+          "modeled_missing_pct": 6.728653,
+          "missing_rows_with_value_elsewhere_same_product": 0,
+          "distinct_values": 1935
+        },
+        "gold": "NOT_IN_GOLD_SCHEMA",
+        "bronze_to_silver_mapping_check": {
+          "mapped_source_rows": 515601,
+          "silver_rows": 515601,
+          "bronze_to_silver_metadata_multiset_matches": 515601,
+          "metadata_rows_with_changed_or_unmatched_values": 0,
+          "method": "Multiset comparison by exact event signature plus canonical (brand, category_id, category_code, price); no row-number join.",
+          "source_attributes_multiset_check": {
+            "bronze_retained_source_rows": 515601,
+            "silver_source_attributes_rows": 515601,
+            "exact_full_raw_attribute_matches": 515601,
+            "bronze_rows_without_exact_source_attributes_match": 0,
+            "method": "Multiset match on event signature and canonical JSON of every source Parquet field."
+          }
+        },
+        "recoverable_from_same_product_rows": 0
+      },
+      "root_cause": "For available fields, missing values originate in Bronze and are preserved by the Silver mapping. Gold intentionally has no brand/category fields in its 11-column event contract.",
+      "classification": [
+        "SOURCE_DATA_ISSUE",
+        "DESIGN_DECISION"
+      ],
+      "confidence": "HIGH for observed coverage and mapping equality; Gold omission is confirmed by its schema.",
+      "proposed_fix": "Use Silver/source_attributes for semantic features or add a separately versioned product dimension; do not synthesize missing catalog values."
+    },
+    {
+      "issue_id": "12_minio_versioning",
+      "severity": "P2",
+      "affected": {
+        "bronze": [
+          {
+            "object_key": "bronze/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/000000000030.parquet",
+            "size_bytes": 78281865,
+            "etag": "da0ac2bae7b530624a3802e8dfcdcbd8-15",
+            "last_modified_utc": "2026-11-25T04:48:13.118000+00:00",
+            "version_id": null,
+            "is_latest": null,
+            "listed_version_count_for_prefix": 1,
+            "listed_version_ids": [
+              "null"
+            ]
+          }
+        ],
+        "silver": [
+          {
+            "object_key": "silver/merrec/merrec_events/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+            "size_bytes": 98862661,
+            "etag": "35b252efbc6396b461731c9224a7b578-19",
+            "last_modified_utc": "2026-11-25T04:48:32.994000+00:00",
+            "version_id": null,
+            "is_latest": null,
+            "listed_version_count_for_prefix": 1,
+            "listed_version_ids": [
+              "null"
+            ]
+          }
+        ],
+        "gold": [
+          {
+            "object_key": "gold/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+            "size_bytes": 51527901,
+            "etag": "a6bc35cbc2bf32d1d642447ef4c70ee3-10",
+            "last_modified_utc": "2026-11-25T04:49:06.694000+00:00",
+            "version_id": null,
+            "is_latest": null,
+            "listed_version_count_for_prefix": 1,
+            "listed_version_ids": [
+              "null"
+            ]
+          }
+        ]
+      },
+      "root_cause": "Bucket versioning is disabled (status null); each current key has a null version ID. MinioLoader uses fput_object on the same deterministic key.",
+      "classification": [
+        "STORAGE_CONFIGURATION",
+        "DESIGN_DECISION"
+      ],
+      "confidence": "HIGH for observed bucket status and object versions; no write/re-run was attempted in this read-only audit.",
+      "proposed_fix": "For future benchmark runs, retain source SHA-256 and a manifest; consider enabling/versioning or immutable run-specific prefixes only after storage policy approval."
+    }
+  ]
+}

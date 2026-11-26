@@ -1,0 +1,231 @@
+{
+  "status": "PASS",
+  "official_bucket": "nutee-recsys",
+  "source_bucket": "nutee-sequential-integrity-g4-test-20261126",
+  "test_bucket": "nutee-product-dimension-g5-test-20261126-1642",
+  "baseline_inventories_before": {
+    "nutee-event-preservation-g3-test-20261126": {
+      "object_count": 2,
+      "sha256": "2bce9129a9ac82e860a4f064076fefe1fa9c1818fede0d474ec29c6bbbe17bcf"
+    },
+    "nutee-recsys": {
+      "object_count": 16,
+      "sha256": "1b766338a0e8ef8b1ea6ee4559423f7a533e3553544e201f16562ed450ce3b42"
+    },
+    "nutee-sequential-integrity-g4-test-20261126": {
+      "object_count": 4,
+      "sha256": "4b1f357ddaba7b3637ab8dec512ca5c7ca79df9743994d6c06f465463597812c"
+    },
+    "nutee-session-v2-test-20261126b": {
+      "object_count": 4,
+      "sha256": "c07751a52c5366038f5a0b76f1f987261c545eb95d0630ed5b19908d535838b4"
+    }
+  },
+  "baseline_inventories_after": {
+    "nutee-event-preservation-g3-test-20261126": {
+      "object_count": 2,
+      "sha256": "2bce9129a9ac82e860a4f064076fefe1fa9c1818fede0d474ec29c6bbbe17bcf"
+    },
+    "nutee-recsys": {
+      "object_count": 16,
+      "sha256": "1b766338a0e8ef8b1ea6ee4559423f7a533e3553544e201f16562ed450ce3b42"
+    },
+    "nutee-sequential-integrity-g4-test-20261126": {
+      "object_count": 4,
+      "sha256": "4b1f357ddaba7b3637ab8dec512ca5c7ca79df9743994d6c06f465463597812c"
+    },
+    "nutee-session-v2-test-20261126b": {
+      "object_count": 4,
+      "sha256": "c07751a52c5366038f5a0b76f1f987261c545eb95d0630ed5b19908d535838b4"
+    }
+  },
+  "baseline_objects_unchanged": true,
+  "bucket_versioning_before": {
+    "nutee-event-preservation-g3-test-20261126": null,
+    "nutee-recsys": null,
+    "nutee-sequential-integrity-g4-test-20261126": null,
+    "nutee-session-v2-test-20261126b": null
+  },
+  "bucket_versioning_after": {
+    "nutee-event-preservation-g3-test-20261126": null,
+    "nutee-recsys": null,
+    "nutee-sequential-integrity-g4-test-20261126": null,
+    "nutee-session-v2-test-20261126b": null
+  },
+  "bucket_versioning_unchanged": true,
+  "test_objects_retained": true,
+  "datasets": {
+    "rees46_electronics": {
+      "silver_key": "silver/rees46_electronics/rees46_events/cbcbedc28c39a6b2add493bbbd9f71c061ad9d84087b85e64c442e4d47f418e7/events.parquet",
+      "gold_v3_key": "gold/v3/rees46_electronics/cbcbedc28c39a6b2add493bbbd9f71c061ad9d84087b85e64c442e4d47f418e7/events.parquet",
+      "product_dimension_key": "gold/v3/rees46_electronics/cbcbedc28c39a6b2add493bbbd9f71c061ad9d84087b85e64c442e4d47f418e7/products.parquet",
+      "silver_rows": 885129,
+      "silver_distinct_products": 53453,
+      "gold_v3_rows": 885129,
+      "gold_v3_distinct_products": 53453,
+      "gold_v3_coverage_count": 53453,
+      "gold_v3_coverage_rate": 1.0,
+      "product_dimension_rows": 53453,
+      "product_dimension_distinct_products": 53453,
+      "missing_counts": {
+        "product_name": 53453,
+        "brand": 16486,
+        "category_id": 0,
+        "category_code": 18856,
+        "price": 0
+      },
+      "missing_rates": {
+        "product_name": 1.0,
+        "brand": 0.30842048154453444,
+        "category_id": 0.0,
+        "category_code": 0.3527584981198436,
+        "price": 0.0
+      },
+      "metadata_conflicts": {
+        "product_name": 0,
+        "brand": 0,
+        "category_id": 0,
+        "category_code": 0,
+        "price": 0
+      },
+      "products_with_metadata_conflicts": 0,
+      "metadata_traceability_checks": {
+        "product_name": 0,
+        "brand": 0,
+        "category_id": 0,
+        "category_code": 0,
+        "price": 0
+      },
+      "content_sha256": "48037140a79c339b8e1b2517279ee6f95931bc55a29287fc4c4fd7bddda9814f",
+      "rerun_content_sha256": "48037140a79c339b8e1b2517279ee6f95931bc55a29287fc4c4fd7bddda9814f",
+      "acceptance_criteria": {
+        "silver_rows_preserved": {
+          "expected": 885129,
+          "actual": 885129,
+          "status": "PASS"
+        },
+        "distinct_silver_product_count": {
+          "expected": 53453,
+          "actual": 53453,
+          "status": "PASS"
+        },
+        "silver_product_id_set_matches": {
+          "expected": 53453,
+          "actual": 53453,
+          "status": "PASS"
+        },
+        "product_ids_nonnull_unique": {
+          "expected": 53453,
+          "actual": 53453,
+          "status": "PASS"
+        },
+        "gold_v3_distinct_product_baseline": {
+          "expected": 53453,
+          "actual": 53453,
+          "status": "PASS"
+        },
+        "gold_v3_product_coverage": {
+          "expected": 53453,
+          "actual": 53453,
+          "status": "PASS"
+        },
+        "metadata_traceable_to_silver": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "deterministic_rerun": {
+          "expected": "48037140a79c339b8e1b2517279ee6f95931bc55a29287fc4c4fd7bddda9814f",
+          "actual": "48037140a79c339b8e1b2517279ee6f95931bc55a29287fc4c4fd7bddda9814f",
+          "status": "PASS"
+        }
+      }
+    },
+    "merrec": {
+      "silver_key": "silver/merrec/merrec_events/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+      "gold_v3_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+      "product_dimension_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/products.parquet",
+      "silver_rows": 605269,
+      "silver_distinct_products": 431734,
+      "gold_v3_rows": 515601,
+      "gold_v3_distinct_products": 416784,
+      "gold_v3_coverage_count": 416784,
+      "gold_v3_coverage_rate": 1.0,
+      "product_dimension_rows": 431734,
+      "product_dimension_distinct_products": 431734,
+      "missing_counts": {
+        "product_name": 0,
+        "brand": 85771,
+        "category_id": 28130,
+        "category_code": 28130,
+        "price": 0
+      },
+      "missing_rates": {
+        "product_name": 0.0,
+        "brand": 0.1986663084213891,
+        "category_id": 0.0651558598581534,
+        "category_code": 0.0651558598581534,
+        "price": 0.0
+      },
+      "metadata_conflicts": {
+        "product_name": 0,
+        "brand": 0,
+        "category_id": 0,
+        "category_code": 0,
+        "price": 0
+      },
+      "products_with_metadata_conflicts": 0,
+      "metadata_traceability_checks": {
+        "product_name": 0,
+        "brand": 0,
+        "category_id": 0,
+        "category_code": 0,
+        "price": 0
+      },
+      "content_sha256": "8ab6ecf70776747c81b202addc5fd90f021e08d9e0d373a063d60037b152e40b",
+      "rerun_content_sha256": "8ab6ecf70776747c81b202addc5fd90f021e08d9e0d373a063d60037b152e40b",
+      "acceptance_criteria": {
+        "silver_rows_preserved": {
+          "expected": 605269,
+          "actual": 605269,
+          "status": "PASS"
+        },
+        "distinct_silver_product_count": {
+          "expected": 431734,
+          "actual": 431734,
+          "status": "PASS"
+        },
+        "silver_product_id_set_matches": {
+          "expected": 431734,
+          "actual": 431734,
+          "status": "PASS"
+        },
+        "product_ids_nonnull_unique": {
+          "expected": 431734,
+          "actual": 431734,
+          "status": "PASS"
+        },
+        "gold_v3_distinct_product_baseline": {
+          "expected": 416784,
+          "actual": 416784,
+          "status": "PASS"
+        },
+        "gold_v3_product_coverage": {
+          "expected": 416784,
+          "actual": 416784,
+          "status": "PASS"
+        },
+        "metadata_traceable_to_silver": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "deterministic_rerun": {
+          "expected": "8ab6ecf70776747c81b202addc5fd90f021e08d9e0d373a063d60037b152e40b",
+          "actual": "8ab6ecf70776747c81b202addc5fd90f021e08d9e0d373a063d60037b152e40b",
+          "status": "PASS"
+        }
+      }
+    }
+  }
+}

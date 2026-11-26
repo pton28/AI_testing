@@ -1,0 +1,163 @@
+{
+  "status": "PASS",
+  "official_bucket": "nutee-recsys",
+  "test_bucket": "nutee-session-v2-test-20261126b",
+  "official_bucket_versioning_before": null,
+  "official_object_count_before": 6,
+  "official_inventory_sha256_before": "5f074564e6a8ae3e98bd2ce1813f0fd5e7c3ea0884e3eaf3e91fe7757bc6553c",
+  "datasets": {
+    "rees46_electronics": {
+      "silver_key": "silver/rees46_electronics/rees46_events/cbcbedc28c39a6b2add493bbbd9f71c061ad9d84087b85e64c442e4d47f418e7/events.parquet",
+      "gold_v1_key": "gold/rees46_electronics/cbcbedc28c39a6b2add493bbbd9f71c061ad9d84087b85e64c442e4d47f418e7/events.parquet",
+      "gold_v2_test_key": "gold/v2/rees46_electronics/cbcbedc28c39a6b2add493bbbd9f71c061ad9d84087b85e64c442e4d47f418e7/events.parquet",
+      "rows": {
+        "expected": 885129,
+        "silver": 885129,
+        "gold_v1": 885129,
+        "gold_v2": 885129
+      },
+      "event_type_distribution_matches": true,
+      "legacy_11_field_multiset_matches": true,
+      "event_ids_changed_in_processing_order": 0,
+      "original_session_ids_changed_in_processing_order": 0,
+      "events_lost": 0,
+      "events_added": 0,
+      "acceptance_criteria": {
+        "gold_events": {
+          "expected": 885129,
+          "actual": 885129,
+          "status": "PASS"
+        },
+        "unique_non_null_session_keys": {
+          "expected": 490633,
+          "actual": 490633,
+          "status": "PASS"
+        },
+        "null_session_keys": {
+          "expected": 165,
+          "actual": 165,
+          "status": "PASS"
+        },
+        "session_keys_shared_by_users": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "events_lost": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "events_added": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "event_ids_changed": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "original_session_ids_changed": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "hash_collisions": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "legacy_11_field_multiset_matches": {
+          "expected": true,
+          "actual": true,
+          "status": "PASS"
+        }
+      },
+      "unique_non_null_session_keys": 490633,
+      "null_session_keys": 165,
+      "session_keys_shared_by_users": 0,
+      "hash_collisions": 0,
+      "tuple_to_key_mappings_checked": 490633
+    },
+    "merrec": {
+      "silver_key": "silver/merrec/merrec_events/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+      "gold_v1_key": "gold/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+      "gold_v2_test_key": "gold/v2/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+      "rows": {
+        "expected": 515601,
+        "silver": 515601,
+        "gold_v1": 515601,
+        "gold_v2": 515601
+      },
+      "event_type_distribution_matches": true,
+      "legacy_11_field_multiset_matches": true,
+      "event_ids_changed_in_processing_order": 0,
+      "original_session_ids_changed_in_processing_order": 0,
+      "events_lost": 0,
+      "events_added": 0,
+      "acceptance_criteria": {
+        "gold_events": {
+          "expected": 515601,
+          "actual": 515601,
+          "status": "PASS"
+        },
+        "unique_non_null_session_keys": {
+          "expected": 112859,
+          "actual": 112859,
+          "status": "PASS"
+        },
+        "null_session_keys": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "session_keys_shared_by_users": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "events_lost": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "events_added": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "event_ids_changed": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "original_session_ids_changed": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "hash_collisions": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "legacy_11_field_multiset_matches": {
+          "expected": true,
+          "actual": true,
+          "status": "PASS"
+        }
+      },
+      "unique_non_null_session_keys": 112859,
+      "null_session_keys": 0,
+      "session_keys_shared_by_users": 0,
+      "hash_collisions": 0,
+      "tuple_to_key_mappings_checked": 112859
+    }
+  },
+  "test_objects_retained": true,
+  "official_objects_unchanged": true,
+  "official_object_count_after": 6,
+  "official_inventory_sha256_after": "5f074564e6a8ae3e98bd2ce1813f0fd5e7c3ea0884e3eaf3e91fe7757bc6553c",
+  "official_bucket_versioning_unchanged": true
+}

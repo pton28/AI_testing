@@ -1,0 +1,196 @@
+{
+  "status": "PASS",
+  "official_bucket": "nutee-recsys",
+  "test_bucket": "nutee-sequential-integrity-g4-test-20261126",
+  "official_inventory_before": {
+    "object_count": 16,
+    "sha256": "1b766338a0e8ef8b1ea6ee4559423f7a533e3553544e201f16562ed450ce3b42"
+  },
+  "official_inventory_after": {
+    "object_count": 16,
+    "sha256": "1b766338a0e8ef8b1ea6ee4559423f7a533e3553544e201f16562ed450ce3b42"
+  },
+  "baseline_inventories_before": {
+    "nutee-event-preservation-g3-test-20261126": {
+      "object_count": 2,
+      "sha256": "2bce9129a9ac82e860a4f064076fefe1fa9c1818fede0d474ec29c6bbbe17bcf"
+    },
+    "nutee-session-v2-test-20261126b": {
+      "object_count": 4,
+      "sha256": "c07751a52c5366038f5a0b76f1f987261c545eb95d0630ed5b19908d535838b4"
+    }
+  },
+  "baseline_inventories_after": {
+    "nutee-event-preservation-g3-test-20261126": {
+      "object_count": 2,
+      "sha256": "2bce9129a9ac82e860a4f064076fefe1fa9c1818fede0d474ec29c6bbbe17bcf"
+    },
+    "nutee-session-v2-test-20261126b": {
+      "object_count": 4,
+      "sha256": "c07751a52c5366038f5a0b76f1f987261c545eb95d0630ed5b19908d535838b4"
+    }
+  },
+  "official_bucket_versioning_before": null,
+  "official_bucket_versioning_after": null,
+  "official_and_baseline_objects_unchanged": true,
+  "bucket_versioning_unchanged": true,
+  "test_objects_retained": true,
+  "datasets": {
+    "rees46_electronics": {
+      "silver_key": "silver/rees46_electronics/rees46_events/cbcbedc28c39a6b2add493bbbd9f71c061ad9d84087b85e64c442e4d47f418e7/events.parquet",
+      "gold_v2_baseline_bucket": "nutee-session-v2-test-20261126b",
+      "gold_v2_baseline_key": "gold/v2/rees46_electronics/cbcbedc28c39a6b2add493bbbd9f71c061ad9d84087b85e64c442e4d47f418e7/events.parquet",
+      "gold_v3_test_key": "gold/v3/rees46_electronics/cbcbedc28c39a6b2add493bbbd9f71c061ad9d84087b85e64c442e4d47f418e7/events.parquet",
+      "silver_rows": 885129,
+      "gold_v2_rows": 885129,
+      "gold_v3_rows": 885129,
+      "gold_v2_content_sha256": "c88f5fd9a7d75bd7f971b6e4226a776d9cd97b58c3f7215570dbc18e4ec8f336",
+      "gold_v3_content_sha256": "c58515db1bcf672e60a3754a6ccd73809182d1b5f90ff26399b10d052e207bab",
+      "gold_non_position_field_multiset_matches": true,
+      "gold_event_id_multiset_matches": true,
+      "reordered_input_rows": true,
+      "reordered_input_gold_v3_content_sha256": "c58515db1bcf672e60a3754a6ccd73809182d1b5f90ff26399b10d052e207bab",
+      "output_is_independent_of_input_order": true,
+      "metrics": {
+        "rows": 885129,
+        "event_counts": {
+          "product_view": 793748,
+          "add_to_cart": 54035,
+          "purchase": 37346
+        },
+        "unique_session_keys": 490633,
+        "positioned_events": 884964,
+        "missing_positions": 165,
+        "null_session_keys": 165,
+        "timestamp_tie_groups": 3294,
+        "ambiguous_events": 7939,
+        "shared_session_keys": 0
+      },
+      "acceptance_criteria": {
+        "gold_events": {
+          "expected": 885129,
+          "actual": 885129,
+          "status": "PASS"
+        },
+        "unique_session_keys": {
+          "expected": 490633,
+          "actual": 490633,
+          "status": "PASS"
+        },
+        "events_with_position": {
+          "expected": 884964,
+          "actual": 884964,
+          "status": "PASS"
+        },
+        "events_missing_position": {
+          "expected": 165,
+          "actual": 165,
+          "status": "PASS"
+        },
+        "timestamp_tie_groups": {
+          "expected": 3294,
+          "actual": 3294,
+          "status": "PASS"
+        },
+        "ambiguous_events": {
+          "expected": 7939,
+          "actual": 7939,
+          "status": "PASS"
+        },
+        "shared_session_keys": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "events_lost_or_added": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "event_ids_changed": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    "merrec": {
+      "silver_key": "silver/merrec/merrec_events/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+      "gold_v2_baseline_bucket": "nutee-event-preservation-g3-test-20261126",
+      "gold_v2_baseline_key": "gold/v2/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+      "gold_v3_test_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+      "silver_rows": 605269,
+      "gold_v2_rows": 515601,
+      "gold_v3_rows": 515601,
+      "gold_v2_content_sha256": "15c69bd6987ef9c49bf0cb9d44354fb310ee5a890dd05717209805c48520bb20",
+      "gold_v3_content_sha256": "36b27462a9e27ee628190d7ea2a33b9a159c147eed4a7b9dc8b4077c92c28755",
+      "gold_non_position_field_multiset_matches": true,
+      "gold_event_id_multiset_matches": true,
+      "reordered_input_rows": true,
+      "reordered_input_gold_v3_content_sha256": "36b27462a9e27ee628190d7ea2a33b9a159c147eed4a7b9dc8b4077c92c28755",
+      "output_is_independent_of_input_order": true,
+      "metrics": {
+        "rows": 515601,
+        "event_counts": {
+          "product_view": 504756,
+          "purchase": 677,
+          "add_to_cart": 10168
+        },
+        "unique_session_keys": 112859,
+        "positioned_events": 515601,
+        "missing_positions": 0,
+        "null_session_keys": 0,
+        "timestamp_tie_groups": 178,
+        "ambiguous_events": 393,
+        "shared_session_keys": 0
+      },
+      "acceptance_criteria": {
+        "gold_events": {
+          "expected": 515601,
+          "actual": 515601,
+          "status": "PASS"
+        },
+        "unique_session_keys": {
+          "expected": 112859,
+          "actual": 112859,
+          "status": "PASS"
+        },
+        "events_with_position": {
+          "expected": 515601,
+          "actual": 515601,
+          "status": "PASS"
+        },
+        "events_missing_position": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "timestamp_tie_groups": {
+          "expected": 178,
+          "actual": 178,
+          "status": "PASS"
+        },
+        "ambiguous_events": {
+          "expected": 393,
+          "actual": 393,
+          "status": "PASS"
+        },
+        "shared_session_keys": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "events_lost_or_added": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        },
+        "event_ids_changed": {
+          "expected": 0,
+          "actual": 0,
+          "status": "PASS"
+        }
+      }
+    }
+  }
+}

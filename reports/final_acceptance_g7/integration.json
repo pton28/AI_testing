@@ -1,0 +1,273 @@
+{
+  "datasets": {
+    "merrec": {
+      "acceptance_criteria": {
+        "als_interactions_rows": {
+          "actual": 429812,
+          "expected": 429812,
+          "status": "PASS"
+        },
+        "als_total_interactions": {
+          "actual": 515601,
+          "expected": 515601,
+          "status": "PASS"
+        },
+        "ambiguous_events": {
+          "actual": 393,
+          "expected": 393,
+          "status": "PASS"
+        },
+        "bronze_events": {
+          "actual": 605269,
+          "expected": 605269,
+          "status": "PASS"
+        },
+        "gold_v3_events": {
+          "actual": 515601,
+          "expected": 515601,
+          "status": "PASS"
+        },
+        "product_coverage": {
+          "actual": "100% (writer validation + exact G6 logical match)",
+          "expected": "100% (writer validation + exact G6 logical match)",
+          "status": "PASS"
+        },
+        "product_dimension_rows": {
+          "actual": 431734,
+          "expected": 431734,
+          "status": "PASS"
+        },
+        "reproducibility": {
+          "actual": "one complete rebuild; second run stopped",
+          "expected": "two complete rebuilds",
+          "status": "NOT_TESTED"
+        },
+        "session_sequences": {
+          "actual": 112859,
+          "expected": 112859,
+          "status": "PASS"
+        },
+        "shared_session_keys": {
+          "actual": 0,
+          "expected": 0,
+          "status": "PASS"
+        },
+        "silver_events": {
+          "actual": 605269,
+          "expected": 605269,
+          "status": "PASS"
+        },
+        "total_sequence_events": {
+          "actual": 515601,
+          "expected": 515601,
+          "status": "PASS"
+        },
+        "unique_session_keys": {
+          "actual": 112859,
+          "expected": 112859,
+          "status": "PASS"
+        }
+      },
+      "acceptance_status": "NOT_TESTED",
+      "actual": {
+        "als_interactions_rows": 429812,
+        "als_total_interactions": 515601,
+        "ambiguous_events": 393,
+        "bronze_events": 605269,
+        "gold_v3_events": 515601,
+        "product_coverage": "100% (writer validation + exact G6 logical match)",
+        "product_dimension_rows": 431734,
+        "session_sequences": 112859,
+        "shared_session_keys": 0,
+        "silver_events": 605269,
+        "total_sequence_events": 515601,
+        "unique_session_keys": 112859
+      },
+      "expected": {
+        "als_interactions_rows": 429812,
+        "als_total_interactions": 515601,
+        "ambiguous_events": 393,
+        "bronze_events": 605269,
+        "gold_v3_events": 515601,
+        "product_coverage": "100% (writer validation + exact G6 logical match)",
+        "product_dimension_rows": 431734,
+        "session_sequences": 112859,
+        "shared_session_keys": 0,
+        "silver_events": 605269,
+        "total_sequence_events": 515601,
+        "unique_session_keys": 112859
+      },
+      "logical_comparisons": {
+        "als_matches_g6": true,
+        "gold_v3_matches_g4": true,
+        "product_dimension_matches_g5": true,
+        "session_sequences_match_g6": true,
+        "silver_matches_g4": true
+      },
+      "manifest_key": "manifests/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/manifest.json",
+      "manifest_sha256": "b5042c0a61b4c36180d8cbf0ed6741086270cf99bd4c6ef1ad0d1f825a6fb24c",
+      "object_keys": {
+        "als_interactions": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/model_ready/als_interactions.parquet",
+        "bronze": "bronze/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/000000000030.parquet",
+        "gold_v3": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+        "product_dimension": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/products.parquet",
+        "session_sequences": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/model_ready/session_sequences.parquet",
+        "silver": "silver/merrec/merrec_events/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet"
+      },
+      "object_sha256": {
+        "als_interactions": "56fe859d8afa449dd1cfecbfcf7b9316120d1c9d6d3f9b0af34373cc9b88ec9d",
+        "bronze": "3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca",
+        "gold_v3": "2f3238c194f63a2a1063b2afa90b212937d3912dd1762be0553e562d865982fd",
+        "product_dimension": "21099bd32a598289dbd238af56b62d46b1db7fd37d71b2dffc768eac14b947e0",
+        "session_sequences": "430e2625383b28387a1ed753b33dbbf3ac726a6e33f0219f7852d2e99f53f411",
+        "silver": "3226b14ab6ec45adf345bfeed0cb4ce23502dfc61d86f6e71e3d1613cc729214"
+      },
+      "reproducibility": {
+        "logical_content_equal_to_accepted_baselines": {
+          "als_matches_g6": true,
+          "gold_v3_matches_g4": true,
+          "product_dimension_matches_g5": true,
+          "session_sequences_match_g6": true,
+          "silver_matches_g4": true
+        },
+        "status": "NOT_TESTED"
+      },
+      "reproducibility_status": "NOT_TESTED",
+      "verification_status": "PARTIAL_SINGLE_PASS"
+    },
+    "rees46_electronics": {
+      "acceptance_status": "PASS",
+      "actual": {
+        "als_interactions_rows": 556690,
+        "als_total_interactions": 885129,
+        "ambiguous_events": 7939,
+        "bronze_events": 885129,
+        "gold_v3_events": 885129,
+        "product_coverage": "100%",
+        "product_dimension_rows": 53453,
+        "session_sequences": 490633,
+        "shared_session_keys": 0,
+        "silver_events": 885129,
+        "total_sequence_events": 884964,
+        "unique_session_keys": 490633
+      },
+      "manifest_key": "manifests/rees46_electronics/cbcbedc28c39a6b2add493bbbd9f71c061ad9d84087b85e64c442e4d47f418e7/manifest.json",
+      "manifest_sha256": "4d0f332d200d08da508d115ccc0c5bbd61097047456b62574c3f112f34db6ab5",
+      "object_keys": {
+        "als_interactions": "gold/v3/rees46_electronics/cbcbedc28c39a6b2add493bbbd9f71c061ad9d84087b85e64c442e4d47f418e7/model_ready/als_interactions.parquet",
+        "bronze": "bronze/rees46_electronics/cbcbedc28c39a6b2add493bbbd9f71c061ad9d84087b85e64c442e4d47f418e7/electronics-events.csv.gz",
+        "gold_v3": "gold/v3/rees46_electronics/cbcbedc28c39a6b2add493bbbd9f71c061ad9d84087b85e64c442e4d47f418e7/events.parquet",
+        "product_dimension": "gold/v3/rees46_electronics/cbcbedc28c39a6b2add493bbbd9f71c061ad9d84087b85e64c442e4d47f418e7/products.parquet",
+        "session_sequences": "gold/v3/rees46_electronics/cbcbedc28c39a6b2add493bbbd9f71c061ad9d84087b85e64c442e4d47f418e7/model_ready/session_sequences.parquet",
+        "silver": "silver/rees46_electronics/rees46_events/cbcbedc28c39a6b2add493bbbd9f71c061ad9d84087b85e64c442e4d47f418e7/events.parquet"
+      },
+      "reproducibility": {
+        "logical_content_equal": {
+          "als_interactions": true,
+          "gold_v3": true,
+          "product_dimension": true,
+          "session_sequences": true,
+          "silver": true
+        },
+        "physical_sha256_equal": {
+          "als_interactions": true,
+          "gold_v3": true,
+          "product_dimension": true,
+          "session_sequences": true,
+          "silver": true
+        },
+        "run_1_sha256": {
+          "als_interactions": "7de91a36f6ded70cca7cb0e21c5947b8c185ea08cc8729503ff37b458a72c3bc",
+          "gold_v3": "e3128550fec4621ec5104db0ab2910429075e2bc8072ded7655503c3feeb4e86",
+          "product_dimension": "863fe14845939bcd4b5fc62e0dd97b67ae93da85f09075cb003f1b28e90a8800",
+          "session_sequences": "ce8ccb1bdadaa4ea37516a860d6e1377af90970722dec7adfea6c85c0225962c",
+          "silver": "0cd8e5165970b05a79c19c764fe2056ce9a7e3a35d21379d15b652d04f6ad3c9"
+        },
+        "run_2_sha256": {
+          "als_interactions": "7de91a36f6ded70cca7cb0e21c5947b8c185ea08cc8729503ff37b458a72c3bc",
+          "gold_v3": "e3128550fec4621ec5104db0ab2910429075e2bc8072ded7655503c3feeb4e86",
+          "product_dimension": "863fe14845939bcd4b5fc62e0dd97b67ae93da85f09075cb003f1b28e90a8800",
+          "session_sequences": "ce8ccb1bdadaa4ea37516a860d6e1377af90970722dec7adfea6c85c0225962c",
+          "silver": "0cd8e5165970b05a79c19c764fe2056ce9a7e3a35d21379d15b652d04f6ad3c9"
+        },
+        "status": "PASS"
+      },
+      "reproducibility_status": "PASS"
+    }
+  },
+  "limitations": [
+    "MerRec second complete rebuild was stopped; reproducibility not tested.",
+    "Official bucket full inventory delta was not captured after the shortened run.",
+    "No official publication, training, or train/test split was performed."
+  ],
+  "official_bucket": {
+    "before_after_inventory_comparison": "NOT_TESTED",
+    "current_object_count": 16,
+    "current_versioning": null,
+    "name": "nutee-recsys",
+    "writes_issued": false
+  },
+  "publication_plan": [
+    {
+      "action": "PENDING_USER_APPROVAL",
+      "existing_proposed_key": true,
+      "preserved_legacy_object": null,
+      "proposed_official_key": "bronze/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/000000000030.parquet",
+      "role": "bronze",
+      "tested_key": "bronze/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/000000000030.parquet"
+    },
+    {
+      "action": "PENDING_USER_APPROVAL",
+      "existing_proposed_key": false,
+      "preserved_legacy_object": {
+        "action": "PRESERVE; DO NOT OVERWRITE",
+        "key": "silver/merrec/merrec_events/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+        "logical_content_equal_to_test_output": false,
+        "sha256": "a59a32b8090098d453ce62870a5d7164da6e9db6e32927c7639913398684fa01"
+      },
+      "proposed_official_key": "silver/merrec/merrec_events/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/event-preservation-g3/events.parquet",
+      "role": "silver",
+      "tested_key": "silver/merrec/merrec_events/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet"
+    },
+    {
+      "action": "PENDING_USER_APPROVAL",
+      "existing_proposed_key": false,
+      "preserved_legacy_object": null,
+      "proposed_official_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+      "role": "gold_v3",
+      "tested_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet"
+    },
+    {
+      "action": "PENDING_USER_APPROVAL",
+      "existing_proposed_key": false,
+      "preserved_legacy_object": null,
+      "proposed_official_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/products.parquet",
+      "role": "product_dimension",
+      "tested_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/products.parquet"
+    },
+    {
+      "action": "PENDING_USER_APPROVAL",
+      "existing_proposed_key": false,
+      "preserved_legacy_object": null,
+      "proposed_official_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/model_ready/als_interactions.parquet",
+      "role": "als_interactions",
+      "tested_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/model_ready/als_interactions.parquet"
+    },
+    {
+      "action": "PENDING_USER_APPROVAL",
+      "existing_proposed_key": false,
+      "preserved_legacy_object": null,
+      "proposed_official_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/model_ready/session_sequences.parquet",
+      "role": "session_sequences",
+      "tested_key": "gold/v3/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/model_ready/session_sequences.parquet"
+    }
+  ],
+  "publication_status": "PENDING_USER_APPROVAL",
+  "status": "PARTIAL_NOT_TESTED",
+  "test_bucket": "nutee-final-acceptance-g7-test-20261126-181223",
+  "unit_regression_tests": {
+    "status": "PASS",
+    "tests": 39
+  },
+  "verifier_compile_and_cli_help": "PASS"
+}

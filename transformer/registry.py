@@ -12,6 +12,7 @@ from transformer.datasets.coveo_sigir_ecom_2021.silver import (
 
 ADAPTERS = {"rees46_events": Rees46Events(), "merrec_events": MerrecEvents()}
 GOLD_ADAPTERS = {"rees46_events": Rees46GoldEvents(), "merrec_events": MerrecGoldEvents()}
+PRODUCT_NAME_COLUMNS = {"rees46_events": None, "merrec_events": "name"}
 
 SILVER_ASSET_ADAPTERS = {
     "amazon_m2_sessions": AmazonM2Sessions(),

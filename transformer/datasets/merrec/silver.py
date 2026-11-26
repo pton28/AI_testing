@@ -22,11 +22,10 @@ class MerrecEvents:
         pa.field("source_attributes", pa.string()),
     ])
 
-    def map_event(self, row: dict) -> dict | None:
+    def map_event(self, row: dict) -> dict:
         kind = row["event_id"]  # This source field is an action name, NOT a unique ID.
-        if kind in self.excluded_events:
-            return None
-        if kind not in self.event_types:
+        normalized_event_type = self.event_types.get(kind)
+        if normalized_event_type is None and kind not in self.excluded_events:
             raise ValueError(f"Unsupported MerRec event {kind!r}")
         user = self.identifier(row["user_id"])
         product = self.identifier(row["item_id"])
@@ -46,7 +45,7 @@ class MerrecEvents:
             raise ValueError(f"Invalid price {price!r}") from error
         return {
             "event_time": timestamp,
-            "event_type": self.event_types[kind],
+            "event_type": normalized_event_type or kind,
             "user_id": user,
             "product_id": product,
             "session_id": self.identifier(row["session_id"]),

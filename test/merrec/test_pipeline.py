@@ -11,7 +11,8 @@ import pyarrow.parquet as pq
 from loader.common.local_store import LocalLoader
 from pipeline import build_gold
 from transformer.common.silver import write_silver
-from transformer.common.gold import GOLD_SCHEMA, validate_gold
+from transformer.common.gold import GOLD_SCHEMA, stable_event_id, validate_gold
+from transformer.datasets.merrec.gold import MerrecGoldEvents
 from transformer.datasets.merrec.silver import MerrecEvents
 
 
@@ -37,21 +38,37 @@ class MerrecTests(unittest.TestCase):
             self.assertNotIn("event_id", row)
             self.assertEqual(json.loads(row["source_attributes"])["color"], "blue")
         for raw in adapter.excluded_events:
-            self.assertIsNone(adapter.map_event(source_row(raw)))
+            row = adapter.map_event(source_row(raw))
+            self.assertEqual(row["event_type"], raw)
+            self.assertEqual(row["source_event_type"], raw)
+            self.assertEqual(json.loads(row["source_attributes"])["event_id"], raw)
+            self.assertIsNone(MerrecGoldEvents().map_event(row))
         for changes in ({"event_id": "new_action"}, {"item_id": None}, {"stime": None}, {"price": float("nan")}):
             with self.assertRaises(ValueError):
                 adapter.map_event(source_row(**changes))
+        with self.assertRaisesRegex(ValueError, "Unsupported MerRec event"):
+            adapter.map_event(source_row("unknown_action"))
 
     def test_parquet_to_gold_rerun_and_minio_contract(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             raw = root / "raw.parquet"
             silver = root / "silver.parquet"
-            rows = [source_row(kind) for kind in MerrecEvents.event_types | dict.fromkeys(MerrecEvents.excluded_events)]
-            rows.append(source_row())  # Repeated interaction must keep its own ID.
+            rows = [
+                source_row("item_view"),
+                source_row("item_like"),
+                source_row("item_add_to_cart_tap"),
+                source_row("offer_make"),
+                source_row("buy_comp"),
+                source_row("buy_start"),
+                source_row("item_view"),
+            ]
             pq.write_table(pa.Table.from_pylist(rows), raw)
             with patch("transformer.common.silver.BATCH_SIZE", 2):
-                self.assertEqual(write_silver(raw, silver, MerrecEvents()), 4)
+                self.assertEqual(write_silver(raw, silver, MerrecEvents()), 7)
+            silver_rows = pq.read_table(silver)
+            self.assertEqual(silver_rows.num_rows, 7)
+            self.assertEqual(silver_rows["source_event_type"].to_pylist(), [row["event_id"] for row in rows])
             store = LocalLoader(root / "data")
             version = "a" * 64
             key = f"silver/merrec/merrec_events/{version}/events.parquet"
@@ -63,6 +80,12 @@ class MerrecTests(unittest.TestCase):
             gold = pq.read_table(store.path(first[0]))
             self.assertEqual(gold.schema, GOLD_SCHEMA)
             self.assertEqual(len(set(gold["event_id"].to_pylist())), 4)
+            self.assertEqual(
+                gold["event_id"].to_pylist(),
+                [stable_event_id("merrec", version, index) for index in range(4)],
+            )
+            self.assertEqual(gold["session_key"].null_count, 0)
+            self.assertEqual(len(set(gold["session_key"].to_pylist())), 1)
             self.assertEqual(gold["position_in_session"].null_count, 4)
             self.assertEqual(validate_gold(store.path(first[0]), "merrec"), first[1])
             self.assertEqual(first[1]["event_counts"], {"product_view": 2, "add_to_cart": 1, "purchase": 1})

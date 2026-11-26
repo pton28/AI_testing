@@ -1,0 +1,128 @@
+{
+  "status": "PASS",
+  "baseline_bucket": "nutee-session-v2-test-20261126b",
+  "test_bucket": "nutee-event-preservation-g3-test-20261126",
+  "bronze_key": "bronze/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/000000000030.parquet",
+  "silver_test_key": "silver/merrec/merrec_events/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+  "gold_v2_baseline_key": "gold/v2/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+  "gold_v2_test_key": "gold/v2/merrec/3f5857b8763f54f6970c4c0c3c1b7ea4ec3c0d5643cc2b68e903b309df0a1bca/events.parquet",
+  "source_event_distribution": {
+    "item_like": 83571,
+    "item_view": 504756,
+    "item_add_to_cart_tap": 10168,
+    "offer_make": 4260,
+    "buy_start": 1837,
+    "buy_comp": 677
+  },
+  "silver_source_event_distribution": {
+    "item_like": 83571,
+    "item_view": 504756,
+    "item_add_to_cart_tap": 10168,
+    "offer_make": 4260,
+    "buy_start": 1837,
+    "buy_comp": 677
+  },
+  "gold_event_distribution": {
+    "product_view": 504756,
+    "add_to_cart": 10168,
+    "purchase": 677
+  },
+  "bronze_silver_source_attributes_multiset_matches": true,
+  "gold_v2_12_field_multiset_matches": true,
+  "gold_event_ids_changed_in_processing_order": 0,
+  "gold_content_sha256_before": "15c69bd6987ef9c49bf0cb9d44354fb310ee5a890dd05717209805c48520bb20",
+  "gold_content_sha256_after": "15c69bd6987ef9c49bf0cb9d44354fb310ee5a890dd05717209805c48520bb20",
+  "acceptance_criteria": {
+    "merrec_bronze_rows": {
+      "expected": 605269,
+      "actual": 605269,
+      "status": "PASS"
+    },
+    "merrec_silver_rows": {
+      "expected": 605269,
+      "actual": 605269,
+      "status": "PASS"
+    },
+    "restored_silver_events": {
+      "expected": 89668,
+      "actual": 89668,
+      "status": "PASS"
+    },
+    "merrec_gold_v2_rows": {
+      "expected": 515601,
+      "actual": 515601,
+      "status": "PASS"
+    },
+    "product_view": {
+      "expected": 504756,
+      "actual": 504756,
+      "status": "PASS"
+    },
+    "add_to_cart": {
+      "expected": 10168,
+      "actual": 10168,
+      "status": "PASS"
+    },
+    "purchase": {
+      "expected": 677,
+      "actual": 677,
+      "status": "PASS"
+    },
+    "unique_gold_session_keys": {
+      "expected": 112859,
+      "actual": 112859,
+      "status": "PASS"
+    },
+    "shared_session_keys": {
+      "expected": 0,
+      "actual": 0,
+      "status": "PASS"
+    },
+    "null_session_keys": {
+      "expected": 0,
+      "actual": 0,
+      "status": "PASS"
+    },
+    "gold_events_lost_or_added": {
+      "expected": 0,
+      "actual": 0,
+      "status": "PASS"
+    },
+    "gold_event_ids_changed": {
+      "expected": 0,
+      "actual": 0,
+      "status": "PASS"
+    },
+    "rees46_gold_rows": {
+      "expected": 885129,
+      "actual": 885129,
+      "status": "PASS"
+    }
+  },
+  "official_inventory_before": {
+    "object_count": 16,
+    "sha256": "1b766338a0e8ef8b1ea6ee4559423f7a533e3553544e201f16562ed450ce3b42"
+  },
+  "official_inventory_after": {
+    "object_count": 16,
+    "sha256": "1b766338a0e8ef8b1ea6ee4559423f7a533e3553544e201f16562ed450ce3b42"
+  },
+  "g2_baseline_inventory_before": {
+    "object_count": 4,
+    "sha256": "c07751a52c5366038f5a0b76f1f987261c545eb95d0630ed5b19908d535838b4"
+  },
+  "g2_baseline_inventory_after": {
+    "object_count": 4,
+    "sha256": "c07751a52c5366038f5a0b76f1f987261c545eb95d0630ed5b19908d535838b4"
+  },
+  "official_bucket_versioning_before": null,
+  "official_bucket_versioning_after": null,
+  "test_objects_retained": true,
+  "gold_rows_before": 515601,
+  "gold_rows_after": 515601,
+  "gold_session_profile": {
+    "unique_session_keys": 112859,
+    "null_session_keys": 0,
+    "shared_session_keys": 0
+  }
+}

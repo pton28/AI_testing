@@ -14,7 +14,9 @@ data/
   sigir/                         # CSV Coveo local, bị Git ignore
   bronze/<dataset>/<sha256>/     # File nguồn khi chạy local
   silver/<dataset>/<adapter>/<sha256>/
-  gold/<dataset>/<sha256>/
+  gold/<dataset>/<sha256>/       # Gold V1, retained for existing snapshots
+  gold/v2/<dataset>/<sha256>/    # Gold V2, retained
+  gold/v3/<dataset>/<sha256>/    # Gold V3, current REES46/MerRec output
 extractor/common/                # Đọc URL/local CSV, gzip, Parquet; tính SHA-256
 loader/common/                   # Ghi MinIO hoặc lưu local
 transformer/common/              # Writer Silver, Gold và kiểm tra hợp đồng
@@ -213,6 +215,63 @@ Xem thêm tùy chọn CLI:
 python -B .\run_pipeline.py --help
 ```
 
+Tạo Product Dimension từ Silver đã có mà không dựng lại Event Log:
+
+```powershell
+$sourceVersion = Read-Host "SHA-256 source version"
+python -B .\run_pipeline.py --dataset rees46_electronics --storage minio `
+  --product-dimension-only --source-version $sourceVersion
+```
+
+Thay dataset bằng `merrec` để chạy cho MerRec. Kết quả nằm tại
+`gold/v3/<dataset>/<sha256>/products.parquet`; `events.parquet` không bị thay
+đổi. Dimension chọn giá trị không rỗng mới nhất theo từng thuộc tính; nếu
+timestamp trùng, dùng giá trị theo thứ tự từ điển để phá tie deterministically.
+Các trường `*_observed_at` ghi thời điểm nguồn của từng giá trị. MerRec lấy
+tên từ Silver `name`; REES46 không có tên sản phẩm trong Silver nên
+`product_name` là null. Đây là snapshot metadata toàn dataset, không có training
+cutoff và không được mặc định dùng trực tiếp để benchmark theo thời gian.
+
+Tạo ALS interactions và session sequences từ Gold V3 cùng Product Dimension đã
+có, không dựng lại các tầng trước:
+
+```powershell
+$sourceVersion = Read-Host "SHA-256 source version"
+python -B .\run_pipeline.py --dataset rees46_electronics --storage minio `
+  --model-ready-only --source-version $sourceVersion
+```
+
+Thay dataset bằng `merrec` để chạy MerRec. Lệnh cần Gold V3 và
+`products.parquet` cùng `source_version` trong bucket đã cấu hình; chỉ ghi hai
+Parquet model-ready và kiểm tra lại nội dung sau khi upload:
+
+```text
+gold/v3/<dataset>/<sha256>/model_ready/als_interactions.parquet
+gold/v3/<dataset>/<sha256>/model_ready/session_sequences.parquet
+```
+
+ALS aggregation giữ repeated interactions, không gán weights hoặc lọc K-core.
+Session sequences bỏ events thiếu `session_key` khỏi output sequence, giữ
+repeated products, sắp xếp theo `position_in_session` và đánh dấu session có
+event ambiguous. Không tạo target item hoặc training samples.
+
+### Data leakage và benchmark
+
+Các output model-ready là aggregate của toàn snapshot, chưa phải train/test
+dataset. Nhóm AI không được dùng ALS interactions toàn snapshot để train rồi
+đánh giá trên cùng dữ liệu. Trước khi benchmark:
+
+- Chia Gold Event Log theo thời gian trước, rồi mới aggregate ALS interactions
+  từ phần training.
+- Với session-based protocol, chia session và tạo input/target theo protocol
+  benchmark đã thống nhất; không dùng future interactions trong training.
+- Product metadata phải phù hợp với training cutoff và những thông tin thực sự
+  sẵn có tại thời điểm dự đoán. REES46 không có `product_name` trong Silver.
+- Không áp dụng K-core filtering trên toàn bộ train/test snapshot.
+
+GĐ6 không thực hiện temporal split, benchmark protocol, training hoặc target
+generation; các quyết định evaluation vẫn thuộc nhóm AI.
+
 ## Kiểm tra kết quả
 
 MinIO object key theo dạng:
@@ -221,15 +280,45 @@ MinIO object key theo dạng:
 bronze/<dataset>/<sha256>/<source-file>
 silver/<dataset>/<adapter>/<sha256>/events.parquet   # REES46/MerRec
 silver/<dataset>/<adapter>/<sha256>/data.parquet     # Amazon-M2/Coveo
-gold/<dataset>/<sha256>/events.parquet               # REES46/MerRec
+gold/<dataset>/<sha256>/events.parquet               # Gold V1; retained
+gold/v2/<dataset>/<sha256>/events.parquet            # Gold V2; retained, 12 columns
+gold/v3/<dataset>/<sha256>/events.parquet            # Gold V3; 13 columns
+gold/v3/<dataset>/<sha256>/products.parquet          # Product Dimension snapshot
+gold/v3/<dataset>/<sha256>/model_ready/              # ALS interactions and session sequences
+manifests/<dataset>/<sha256>/manifest.json           # Processing provenance and checksums
 ```
 
 Log pipeline in vị trí Bronze/Silver/Gold và số dòng Silver. Trong Console, mở
-bucket `nutee-recsys` và kiểm tra prefix tương ứng. Gold được pipeline đọc lại
-và kiểm tra schema 11 cột, Snappy, event types, ID duy nhất và thống kê nội dung.
+bucket `nutee-recsys` và kiểm tra prefix tương ứng. Gold V1 giữ schema 11 cột;
+Gold V2 giữ 12 cột, gồm `session_key`; Gold V3 thêm `order_ambiguous` (13 cột)
+và sắp xếp REES46/MerRec theo session, timestamp, rồi `event_id`. Ties được đánh
+dấu ambiguous; đây là deterministic ordering, không phải ground truth. Các
+phiên bản Gold dùng prefix riêng, Parquet Snappy và được kiểm tra khi đọc lại.
 Silver được ghi thành Parquet Snappy; pipeline dừng nếu thiếu cột, dữ liệu sai
 kiểu theo adapter hoặc không có dòng hợp lệ. Bronze là file nguồn được upload;
 không có bước validation nội dung Bronze riêng.
+
+### Manifest và nghiệm thu GĐ7
+
+Manifest ghi `source_version`, SHA-256 của source và từng output, schema,
+configuration fingerprint, commit/worktree, row counts và trạng thái nghiệm
+thu. Với Parquet, SHA-256 byte-level có thể khác dù schema và logical rows
+giống nhau; verifier so sánh logical content trước khi xem đó là conflict.
+
+Verifier GĐ7 đọc Bronze và các baseline từ bucket chính thức/accepted, nhưng
+chỉ ghi vào bucket test riêng. Dùng tên bucket mới, chưa tồn tại:
+
+```powershell
+$testBucket = "nutee-final-acceptance-g7-test-$((Get-Date).ToUniversalTime().ToString('yyyyMMdd-HHmmss'))"
+python -B -m test.common.verify_final_acceptance_g7_minio --test-bucket $testBucket
+```
+
+Không xóa bucket test sau khi chạy. Manifest nằm tại
+`manifests/<dataset>/<sha256>/manifest.json`; báo cáo local nằm dưới
+`reports/final_acceptance_g7/`. `--help` và verifier đã được chạy trong lượt
+bàn giao hiện tại, nhưng nghiệm thu GĐ7 chỉ được đánh dấu PASS khi cả hai
+dataset hoàn tất hai lượt pipeline, logical comparisons và inventory checks.
+Nếu chỉ chạy một lượt, giữ outputs nhưng ghi reproducibility là NOT TESTED.
 
 Có thể kiểm tra bucket và liệt kê object mà không in credentials:
 
